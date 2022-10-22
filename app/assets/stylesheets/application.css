@@ -41,15 +41,19 @@ a {
 }
 
 .header {
-  width: 100%;
   color: #e0fbfc;
-  background: url(../img/cover5.jpg);
-  background-position: center;
-  background-attachment: contain;
   background-size: cover;
-  display: flex;
-  flex-flow: column nowrap;
- 
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+}
+
+.portrait {
+  color: #e0fbfc;
+  background: url(/cover5.jpg);
+  background-repeat: no-repeat;
+  background-size: cover
+
 }
 
 .contenedor {
@@ -61,7 +65,7 @@ a {
 }
 
 .carousel img {
-  height: 350px;
+  height: 450px !important;
   
 }
 
@@ -88,6 +92,31 @@ a {
   background: #0274be;
   color: #fff;
 }
+/*bussines section*/
+.photo-company {
+  background: #fe8c00;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f83600, #fe8c00);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fe8c00, #f83600); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.info-business {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+  color: #fff;
+}
+
+.info-business:hover {
+  background: #fe8c00 !important;
+  color: #fff;
+}
+
+
 /*top product section*/
 .rounded:hover {
   box-shadow: 10px 10px 346px 0px rgba(0,0,0,0.71);
@@ -213,6 +242,11 @@ p {
   background: #fff;
 }
 
+/*xxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxx*/
+
 @media (max-width: 1070px ) {
   .tarjeta {
     width: 48%;
@@ -265,20 +299,26 @@ p {
 
 }
 
+.size {
+  width: 100%;
+  height: 100%;
+}
+
+.size-logo {
+  width: 300px;
+  height: 250px;
+  padding: 10px;
+}
 
 /*Comence aqui*/
 
 .categories {
   width: 100%;
   color: #fff;
-  background: url(../img/cover6.jpg);
+  background: url(/cover6.jpg);
   background-position: center;
-  background-attachment: contain;
   background-size: cover;
-  display: flex;
-  flex-flow: column nowrap;
-  clip-path: polygon(0 1%, 100% 0%, 100% 94%, 0% 100%);
-
+  background-repeat: no-repeat;
 }
 
 .carousel img {
@@ -384,3 +424,63 @@ p {
   margin-bottom: 5px;
   font-size: 40px;
 }
+
+
+.agro {
+  width: 100%;
+  color: #e0fbfc;
+  background: url(../img/cow.jpg);
+  background-position: center;
+  background-attachment: contain;
+  background-size: cover;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.info-company-two {
+  height: 300px;
+  background: url(../img/cow.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #000
+
+}
+
+.row-company {
+  border: solid 2px gray;
+  border-radius: 10px 10px 0 0;
+
+}
+
+.row-company-photo {
+  border: solid 2px gray;
+  border-radius: 0 0 10px 10px;
+
+}
+
+.company {
+  padding: 40px 0;
+
+}
+
+.row-contact {
+  display: flex;
+  flex-flow: row nowrap
+}
+
+.social {
+  flex: 5 1 auto;
+}
+
+.social-two a {
+  padding: 0 10px;
+  letter-spacing: 2px;
+  color: #000;
+}
+
+.social-two a:hover {
+  color: #008000;
+}
+
+

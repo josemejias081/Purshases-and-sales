@@ -2,17 +2,36 @@
   <div class="collapse" id="navbarHeader">
     <div class="container">
       <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
+        <div class="col-sm-6 col-md-5 py-2">
           <h4 class="text-white ">Sobre Nosotros</h4>
           <p class="text-muted">Somos una alternativa para ofrecer, comprar o saber a donde ir cuando necesites algo. Tus anuncios pueden mostrarse en internet cuando alguien busca productos o servicios como los ofrecidos por ti.</p>
         </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
+        <div class="col offset-md-1 py-2">
+          <h4 class="text-white">Actions</h4>
           <ul class="list-unstyled">
-            <li><%= link_to "crear categoria", new_category_path, class: "text-dark" %>  <i class="fab fa-linkedin"></i></li>
+            <li><i class="fas fa-plus-square"></i> <%= link_to "Crear categoria", new_category_path, class: "text-white" %></li> 
+            <li><%= link_to "Categorias", categories_path, class: "text-white" %>  <i class="far fa-folder-open"></i>
+
+            <li><i class="fas fa-plus-square"></i> <%= link_to "Crear negocio", new_business_path, class: "text-white" %></li>
+            <li><%= link_to "Negocios", businesses_path, class: "text-white" %>  <i class="fas fa-store-alt"></i>
+
+            <li><i class="fas fa-plus-square"></i> <%= link_to "Crear producto", new_product_path, class: "text-white" %></li>
+            <li><%= link_to "Productos", products_path, class: "text-white" %>  <i class="fas fa-shopping-basket"></i>
+            
+          </ul>
+        </div>
+
+        <div class="col offset-md-1 py-2">
+          <h4 class="text-white">Contact</h4>
+          <ul class="list-unstyled">            
+            <li><a href="#" class="text-white"><i class="fas fa-envelope"></i> Email</a></li>
+            <li><a href="#" class="text-white"><i class="fab fa-whatsapp-square"></i>  WhatsApp</a></li>
+          </ul>
+          <h4 class="text-white">Follow me</h4>
+          <ul class="list-unstyled">            
             <li><a href="#" class="text-white"><i class="fab fa-linkedin"></i> Linkedin</a></li>
             <li><a href="#" class="text-white"><i class="fab fa-instagram"></i> Instagram</a></li>
-            <li><a href="#" class="text-white"><i class="fas fa-envelope"></i> Email</a></li>
+            <li><a href="#" class="text-white"><i class="fab fa-facebook-square"></i></i> Facebook</a></li>
           </ul>
         </div>
       </div>
@@ -20,13 +39,14 @@
   </div>
   <div class="navbar navbar-dark  shadow-sm">
     <div class="container">
-      <a href="index.html" class="navbar-brand d-flex align-items-center">
-        <i class="fas fa-bullhorn"></i> <strong class="pl-1 text-dark">Purchases & Sales</strong>
-      </a>
+      <span  class="navbar-brand d-flex align-items-center">
+        <%= link_to root_path do %> 
+          <i class="fas fa-bullhorn"></i><strong class="pl-1">Purchases & Sales</strong>
+        <% end %>
+      </span>
       <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
   </div>
-  
 </header>

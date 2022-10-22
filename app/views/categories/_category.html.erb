@@ -1,10 +1,39 @@
-<div class="container contenedor">
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <span class="display-3 font-weight-bold"><%= category.name %></span>
-      <h1>Publica y encuentra lo que quieras en un solo sitio</h1>
-      <p><%= category.description %></p>
-      <a class="btn btn-success" href="#contact">Contratar servicios</a>
+<div class="header" style="background-image: url(<%= rails_blob_url(@category.photo) if @category.photo.attached? %>)">
+  <div class="container contenedor">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <span class="display-3 font-weight-bold"><%= @category.name %></span>
+        <h1>Publica y encuentra lo que quieras en un solo sitio</h1>
+        <p><%= @category.description %></p>
+        <a class="btn btn-success" href="#contact">Contratar servicios</a>
+      </div>
     </div>
   </div>
 </div>
+
+<% @category.businesses.each do |business| %>
+  <section class="container mb-3">
+    <div class="row row-company mt-3">
+      <div class="col-md-4  photo-company">
+        <figure class="figure m-3" >
+          <%= image_tag business.logo, class: "figure-img img-fluid rounded", style:"width: 100%;"%>
+        </figure>
+      </div>
+      <div class="col-md-8 info-business" style="background-image: url(<%= rails_blob_url(business.cover) if business.cover.attached? %>)">
+        <div class="card-body">
+          <h3 class="card-title my-3"><%= business.name %></h3>
+          <p class="card-text"><%= business.description %></p>
+          <p class="btn btn-primary">
+            <%= link_to "Show this business", business, class: "text-white" %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>
+<div class="container mb-5">
+  <%= link_to "Edit this category", edit_category_path(@category) %> |
+  <%= link_to "Back to categories", categories_path %> |
+  <%= link_to "Destroy this category", @category, data: {turbo_method: :delete} %>
+</div>
+     
