@@ -1,0 +1,85 @@
+<%= form_with(model: business) do |form| %>
+  <% if business.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(business.errors.count, "error") %> prohibited this business from being saved:</h2>
+
+      <ul>
+        <% business.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :Logo, style: "display: block" %>
+    <%= form.file_field :logo %>
+  </div>
+
+  <div>
+    <%= form.label :Portada, style: "display: block" %>
+    <%= form.file_field :cover %>
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :rif, style: "display: block" %>
+    <%= form.text_field :rif %>
+  </div>
+
+  <div>
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :ig, style: "display: block" %>
+    <%= form.text_field :ig %>
+  </div>
+
+  <div>
+    <%= form.label :fb, style: "display: block" %>
+    <%= form.text_field :fb %>
+  </div>
+
+  <div>
+    <%= form.label :location, style: "display: block" %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div>
+    <%= form.label :category, style: "display: block" %>
+    <%# collection_select(:business, :category_id, @categories, :id, :name, {:prompt => 'Seleccione una categoría'}, { class: "form-control" })%>
+    <%= collection_select(:business,:category_id, Category.all, :id, :name) %>
+  </div>
+
+  <div class="row">
+    <div class="col form-check form-switch mt-3 mx-3">
+      <%= form.label "Marcar como destacado", class: "form-check-label" %>
+      <%= form.check_box :featured, class: "form-check-input", placeholder: "" %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

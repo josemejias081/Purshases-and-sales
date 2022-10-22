@@ -1,0 +1,53 @@
+<section class="container mb-5">
+  <div class="row row-company mt-5">
+    <div class="col-md-4  photo-company">
+      <% if @business.logo.attached? %>
+        <figure class="figure m-3" >
+        <%= image_tag url_for(@business.logo), class: "figure-img img-fluid rounded", style: "width: 100%;" %>
+      <% else %>
+        <img src="https://www.yeaah.co/wp-content/uploads/2021/08/producto-sin-imagen.jpg" alt="" class="figure-img img-fluid rounded" style="width: 100%;">
+        </figure>
+      <% end %>
+    </div>
+    <div class="col-md-8 info-business" style="background-image: url(<%= rails_blob_url(@business.cover) if @business.cover.attached? %>)">
+      <h3 class="my-3"><%= @business.name %></h3>
+      <h4 class="my-3">RIF: <%= @business.rif %></h4>
+      <h4 class="my-3">Dirección: <%= @business.address %></h4>
+      <h4 class="my-3">Teléfono: <%= @business.phone %></h4>
+      <h4 class="my-3">Correo: <%= @business.email %></h4>
+      <h4>Contacto:</h4>
+      <div class="row row-contact padre">
+        <div class="col-md-12 social">
+          <a href="<%= @business.ig %>" class="mr-3"><i class="fab fa-instagram "></i> Instagram</a>
+          <a href="<%= @business.fb %>"><i class="fab fa-facebook-square"></i> Facebook</a>
+          <a href="https://api.whatsapp.com/send?phone=+584141584350&amp;text=Hola!" target="_blanck"><i class="fab fa-whatsapp-square"></i> Whatsapp</a>
+          <a href="<%= @business.location %>"><i class="fas fa-map-marker-alt"></i> Visitanos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Photo Products Company-->
+  <div class="row row-company-photo">
+    <div class="col-md-3 mb-2">
+      <img src="/gallery1-free-img.jpg" alt="" class="rounded" style="width: 100%;">
+      <figcaption class="figure-caption">Café 2 $ </figcaption>
+    </div>
+    <div class="col-md-3 mb-2">
+      <img src="/pan.jpg" alt="" class="rounded" style="width: 100%;">
+      <figcaption class="figure-caption">Pan frances 2 $ kg, canilla 1.5 $ und.</figcaption>
+    </div>
+    <div class="col-md-3 mb-2">
+      <img src="/ferreteria.jpg" alt="" class="rounded" style="width: 100%;">
+      <figcaption class="figure-caption">Aceite desde 3.20 $.</figcaption>
+    </div>
+    <div class="col-md-3 mb-2">
+      <img src="/viveres.jpg" alt="" class="rounded" style="width: 100%;">
+      <figcaption class="figure-caption">Precio, descripción, ...</figcaption>
+    </div>
+  </div>
+  <div>
+    <%= link_to "Edit this business", edit_business_path(@business) %> |
+    <%= link_to "Back to businesses", businesses_path %> |
+    <%= link_to "Destroy this business", @business, data: {turbo_method: :delete} %>
+  </div>
+</section>

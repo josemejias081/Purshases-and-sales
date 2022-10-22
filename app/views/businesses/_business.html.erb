@@ -1,0 +1,9 @@
+<div class="col-md-8 info-business" style="background-image: url(<%= rails_blob_url(business.cover) if business.cover.attached? %>)">
+  <div class="card-body">
+    <h3 class="card-title my-3"><%= business.name %></h3>
+    <p class="card-text"><%= business.description %></p>
+    <p class="btn btn-primary">
+      <%= link_to "Show this business", business, class: "text-white" %>
+    </p>
+  </div>
+</div>

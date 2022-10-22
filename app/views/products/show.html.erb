@@ -1,0 +1,30 @@
+<section class= "container">
+  <p>Vista de producto </p>
+  <div class="row justify-content-center">
+    <div class="col-auto mt-5 mb-5">
+      <div class="card">      
+          <% if @product.image.attached? %>
+            <%= image_tag @product.image, size: "250x200", class:"card-img-top" %>
+          <% else %>
+            <img src="https://www.yeaah.co/wp-content/uploads/2021/08/producto-sin-imagen.jpg" class="card-img-top" alt="" width="250" height="200">
+          <% end %>
+        <div class="card-body">
+        <h5 class="card-title ">Producto: <%= @product.name %></h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Presentacion: <%= @product.presentation %></li>
+            <li class="list-group-item">Precio: <%= @product.price %></li>
+            <li class="list-group-item">Distribuidor: <%= @product.business.name %></li>
+          </ul>
+        </div>
+        <div class="card-footer d-grid gap-2">
+          <%= link_to "Ver este producto", @product, class: "btn btn-primary" %>
+        </div>
+        <div class="card-footer text-center">
+          <%= link_to "Editar", edit_product_path(@product), class: "card-link" %>
+          <%= link_to "Volver", products_path, class: "card-link" %>
+          <%= link_to "Eliminar", @product, data: {turbo_method: :delete}, class: "card-link" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

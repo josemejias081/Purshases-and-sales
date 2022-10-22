@@ -1,0 +1,16 @@
+<div class="row">
+  <% @categories.each do |category| %>
+    <% if category.featured? %>
+      <div class="col-md-4">
+        <div class="card " >
+          <%= link_to category, class: "card-content" do %>
+            <div class="card-body">
+              <h5 class="card-title display-4"> <i class="<%= category.icon %>"></i> </h5>
+              <p class="card-text"><%= category.name %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

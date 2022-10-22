@@ -1,0 +1,20 @@
+<section class="container">
+  <h1>Businesses list</h1>
+  <% @businesses.each do |business| %>
+    <div class="row row-company mt-3 mb-3">
+      <div class="col-md-4  photo-company">
+        <% if business.logo.attached? %>
+          <figure class="figure m-3" >
+          <%= image_tag url_for(business.logo), class: "figure-img img-fluid rounded", style: "width: 100%;" %>
+        <% else %>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4nKnXI_b_GU0wpcYBkUMjGy8GcBsuliQ3ZvqzQhlcT-NSCL4IJ91H7BMniX48fr-Bh5c&usqp=CAU" alt="" class="figure-img img-fluid rounded" style="width: 100%;">
+          </figure>
+        <% end %>
+      </div>
+      <%= render business %>
+    </div>
+  <% end %>
+  <div class= "mb-5">
+    <%= link_to "Add new business", new_business_path, class: "btn btn-primary" %>
+  </div>
+</section>

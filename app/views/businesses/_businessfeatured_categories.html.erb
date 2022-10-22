@@ -1,0 +1,18 @@
+<section class="top-product p-1" >
+  <div class="row mb-5 top">
+    <% @businesses.each do |business| %>
+      <% if business.featured? %>
+        <div class="col-md-6"> 
+          <div class="card" >
+            <%= image_tag business.cover, class: "card-img-top" %>
+            <div class="card-body">
+              <h5 class="card-title border-bottom"><%= business.name %></h5>
+              <p class="card-text"><%= business.description %></p>
+              <%= link_to "Show this business", business, class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</section>
