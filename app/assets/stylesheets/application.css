@@ -125,6 +125,11 @@ a {
   cursor: pointer;
 }
 
+.border {
+  width: 200px;
+  height: 200px;
+}
+
 
 /*product top*/
 .top {
@@ -423,28 +428,6 @@ p {
 .categories-section {
   margin-bottom: 5px;
   font-size: 40px;
-}
-
-
-.agro {
-  width: 100%;
-  color: #e0fbfc;
-  background: url(../img/cow.jpg);
-  background-position: center;
-  background-attachment: contain;
-  background-size: cover;
-  display: flex;
-  flex-flow: column nowrap;
-}
-
-.info-company-two {
-  height: 300px;
-  background: url(../img/cow.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #000
-
 }
 
 .row-company {

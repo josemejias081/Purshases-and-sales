@@ -1,4 +1,5 @@
 <section class="container mb-5">
+<p>negocio con productos</p>
   <div class="row row-company mt-5">
     <div class="col-md-4  photo-company">
       <% if @business.logo.attached? %>
@@ -27,24 +28,20 @@
     </div>
   </div>
   <!--Photo Products Company-->
-  <div class="row row-company-photo">
-    <div class="col-md-3 mb-2">
-      <img src="/gallery1-free-img.jpg" alt="" class="rounded" style="width: 100%;">
-      <figcaption class="figure-caption">Café 2 $ </figcaption>
-    </div>
-    <div class="col-md-3 mb-2">
-      <img src="/pan.jpg" alt="" class="rounded" style="width: 100%;">
-      <figcaption class="figure-caption">Pan frances 2 $ kg, canilla 1.5 $ und.</figcaption>
-    </div>
-    <div class="col-md-3 mb-2">
-      <img src="/ferreteria.jpg" alt="" class="rounded" style="width: 100%;">
-      <figcaption class="figure-caption">Aceite desde 3.20 $.</figcaption>
-    </div>
-    <div class="col-md-3 mb-2">
-      <img src="/viveres.jpg" alt="" class="rounded" style="width: 100%;">
-      <figcaption class="figure-caption">Precio, descripción, ...</figcaption>
-    </div>
-  </div>
+  <section class="row row-company-photo">
+    <% @business.products.each do |product| %>
+      <div class="col-md-3 mb-2 mt-2">
+        <% if product.image.attached? %>
+          <%= image_tag url_for(product.image), class:"rounded border", style:"width: 100%;" %>
+        <% else %>
+          <img src="/producto-sin-imagen-recortada.jpeg" alt="" class="rounded border" style="width: 100%;">
+        <% end %>
+        <figcaption class="figure-caption text-center">
+          <%= product.name %> <span class= text-info >|</span> <%= product.presentation %> <span class= text-info >|</span> <%= product.price %> $ 
+        </figcaption>
+      </div>
+    <% end %>
+  </section>
   <div>
     <%= link_to "Edit this business", edit_business_path(@business) %> |
     <%= link_to "Back to businesses", businesses_path %> |

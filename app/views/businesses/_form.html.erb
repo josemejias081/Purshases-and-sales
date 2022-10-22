@@ -72,6 +72,13 @@
     <%= collection_select(:business,:category_id, Category.all, :id, :name) %>
   </div>
 
+  <div>
+    <%= form.label :Product, style: "display: block" %>
+    <%# collection_select(:business, :category_id, @categories, :id, :name, {:prompt => 'Seleccione una categoría'}, { class: "form-control" })%>
+    <%# collection_select(:business,:product_ids, Product.all, :id, :name) %>
+    <%= form.select :product_ids, options_from_collection_for_select(@products, :id, :name, @business.products.pluck(:id)), {}, multiple: true, id: "product_ids", class: "form-control"%>
+  </div>
+
   <div class="row">
     <div class="col form-check form-switch mt-3 mx-3">
       <%= form.label "Marcar como destacado", class: "form-check-label" %>

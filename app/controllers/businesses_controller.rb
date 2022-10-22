@@ -6,16 +6,21 @@ class BusinessesController < ApplicationController
   end
  
   def show
+    @products = Product.all
+    @businesses = Business.all
   end
   
   def new
+    @products = Product.all
     @business = Business.new
   end
 
   def edit
+    @products = Product.all
   end
 
   def create
+    @products = Product.all
     @categories = Category.all
     @business = Business.new(business_params)
     if @business.save
@@ -26,6 +31,7 @@ class BusinessesController < ApplicationController
   end
 
   def update
+    @products = Product.all
       if @business.update(business_params)
         redirect_to @business, notice: "Business was successfully updated." 
       else
@@ -45,6 +51,6 @@ class BusinessesController < ApplicationController
     end
 
     def business_params
-      params.require(:business).permit(:name, :rif, :address, :phone, :email, :ig, :fb, :location, :logo, :cover, :featured, :description, :category_id)
+      params.require(:business).permit(:name, :rif, :address, :phone, :email, :ig, :fb, :location, :logo, :cover, :featured, :description, :category_id, product_ids:[])
     end
 end
