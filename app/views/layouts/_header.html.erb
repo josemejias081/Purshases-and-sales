@@ -45,9 +45,10 @@
         <% end %>
       </span>
       <% if user_signed_in? %> 
-      <div> Welcome <%= current_user.email %> <%= current_user.name %> <%= current_user.address %></div> 
+      <div> Welcome: <%= current_user.name %></div> 
         <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class:"btn btn-small btn-danger" %> 
-        <%= link_to "Edit", edit_user_registration_path(current_user), class:"btn btn-small btn-warning" %> 
+        <%= link_to "Edit", edit_user_path(current_user), class:"btn btn-small btn-warning" %> 
+        <%= link_to 'Agregar empleado', new_user_path, class: "btn btn-small btn-info" %>
       <% else %>
         <%= link_to "Sign in", new_user_session_path, class:"btn btn-small btn-success" %> 
       <% end %>

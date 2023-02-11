@@ -1,0 +1,35 @@
+<div class="card mt-5 p-2">
+  <div class="card-header bg-primary">
+    <h1 class="card-title pt-2 text-white">Registro de clientes</h1>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Cod.</th>
+            <th>Nombre</th>
+            <th>Correo Electrónico</th>
+            <th>Teléfono</th>
+            <th>Perfiles</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @users = User.all%>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.phone %></td>
+            <td class="d-grid gap-2"><%= link_to 'Ver', user, class: "btn btn-info btn-block text-white" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= link_to '+ Agregar Cliente', new_user_path, class: "btn btn-info btn-sm text-white fw-bold" %>
+  </div>
+</div>

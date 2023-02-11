@@ -1,0 +1,60 @@
+<section class="container">
+  <div class="card">
+  <div class= "card-body">
+    <%= form_for @user do |f| %>
+      <% if @user.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+          <ul>
+            <% @user.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      
+      <div class="form-group mb-4">
+        <%= f.text_field :name, autofocus: true, placeholder: "Nombre y Apellido",class: 'form-control' %>
+      </div>
+
+      <div class="form-group mb-4">
+        <%= f.text_field :address, autofocus: true, placeholder: "Direccion",class: 'form-control' %>
+      </div>
+
+      <div class="form-group mb-4">
+        <%= f.text_field :phone, autofocus: true, placeholder: "Num. telefónico",class: 'form-control' %>
+      </div>
+
+      <div class="form-group mb-4">
+        <%= f.email_field :email, autofocus: true, placeholder: "Correo Electrónico", autocomplete: "email",class: 'form-control' %>
+      </div>
+
+      <%# unless current_user.Visitor? %>
+        <div class="form-group mb-4 ">
+          <%= f.select( :role, User.roles.keys, {class: "form-control "}) %>
+        </div>
+      <%# end %>
+
+      <%# unless current_user.Visitor? %>
+        <div class="form-group form-check form-switch mb-4">
+          <%= f.label "Activo / Inactivo", class: "form-check-label" %>
+          <%= f.check_box :active, class: "form-check-input", placeholder: "" %>
+        </div>
+      <%# end %>
+      
+      <div class="form-group mb-4">
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Contraseña (6 Caracteres mínimos)", class: 'form-control' %>
+      </div>
+
+      <div class="form-group mb-4">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmar Contraseña",class: 'form-control' %>
+      </div>
+
+      <div class="actions d-grid">
+        <%= f.submit "Registrar", class: " w-100 btn btn-lg btn-primary" %>
+      </div>
+    <% end %>
+    <small class="text-muted"><%= render "devise/shared/links" %></small>
+    </div>
+  </div>
+</section>
