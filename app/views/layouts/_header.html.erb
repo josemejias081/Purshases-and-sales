@@ -11,14 +11,14 @@
           <ul class="list-unstyled">
             <li><i class="fas fa-plus-square"></i> <%= link_to "Crear categoria", new_category_path, class: "text-white" %></li> 
             <li><%= link_to "Categorias", categories_path, class: "text-white" %>  <i class="far fa-folder-open"></i>
-
+              <hr class="divider">
             <li><i class="fas fa-plus-square"></i> <%= link_to "Crear negocio", new_business_path, class: "text-white" %></li>
             <li><%= link_to "Negocios", businesses_path, class: "text-white" %>  <i class="fas fa-store-alt"></i>
-
+              <hr class="divider">
             <li><i class="fas fa-plus-square"></i> <%= link_to "Crear producto", new_product_path, class: "text-white" %></li>
             <li><%= link_to "Productos", products_path, class: "text-white" %>  <i class="fas fa-shopping-basket"></i>
-
-            <li><i class="fas fa-plus-square"></i><%= link_to 'Agregar cliente', new_user_path, class: "text-white" %></li>
+              <hr class="divider">
+            <li><i class="fas fa-plus-square"></i> <%= link_to 'Agregar cliente', new_user_path, class: "text-white" %></li>
             <li><%= link_to "Clientes", users_path, class: "text-white" %>  <i class="fas fa-users"></i>
             
           </ul>

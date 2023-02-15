@@ -17,7 +17,11 @@
           <li class="list-group-item">Dirección: <%= @user.address %></li>
           <li class="list-group-item">Teléfono: <%= @user.phone %></li>
           <li class="list-group-item">Rol: <%= @user.role %></li>
-          <li class="list-group-item">Rol: <%= @user.active %></li>
+          <% if @user.active %>
+            <li class="list-group-item">Estatus: <span class="text-success fw-bold">Activo</span> </li>
+          <% else %>
+            <li class="list-group-item">Estatus: <span class="text-danger fw-bold">Inactivo</span></li>  
+          <% end %>
           <li class="list-group-item">Fecha de registro: <%= I18n.l(@user.created_at, format: '%d/%m/%Y') %></li>
         </ul>
       </div>
