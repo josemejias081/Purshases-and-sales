@@ -1,31 +1,35 @@
 <section class= "container">
-  <p>Vista de producto </p>
-  <div class="row justify-content-center">
-    <div class="col-auto mt-5 mb-5">
-      <div class="card" style="width: 20rem;">      
-        <% if @product.image.attached? %>
-          <%= image_tag @product.image, size: "250x200", class:"card-img-top" %>
+  <article class="product-post gradient_border">
+    <div class="product-post__img gradient_border">
+      <% if @product.image.attached? %>
+          <%= image_tag @product.image, class:"img-fluid" %>
         <% else %>
-          <img src="https://www.yeaah.co/wp-content/uploads/2021/08/producto-sin-imagen.jpg" class="card-img-top" alt="" width="250" height="200">
+          <img src="https://www.yeaah.co/wp-content/uploads/2021/08/producto-sin-imagen.jpg" class="img" alt="" >
+      <% end %>
+    </div>
+    <div class="product-post__info">
+      <div class="product-post__featured">
+        <span>$ <%= @product.price %></span>
+        <% if @product.featured? %>
+          <span>Producto destacado</span>
+        <% else%>
+          <span>Oferta</span>
         <% end %>
-        <div class="card-body">
-          <h5 class="card-title ">Producto: <%= @product.name %></h5>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Presentacion: <%= @product.presentation %></li>
-            <li class="list-group-item">Precio: <%= @product.price %></li>
-            <li class="list-group-item">Distribuidor: 
-              <%= link_to @product.business, class: "card-conten" do %>
-                <%= @product.business.name %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-        <div class="card-footer text-center">
+      </div>
+      <h2 class="product-post__title"><%= @product.name %></h2>
+      <p class="product-description">
+        <%= @product.presentation %>
+      </p>
+      <%= link_to @product.business, class: "product-post__cta" do %>
+        <%= @product.business.name %>
+      <% end %>
+      <% unless current_user.Visitor?%>
+        <div class="card-footer text-center mt-2">
           <%= link_to "Editar", edit_product_path(@product), class: "card-link" %>
           <%= link_to "Volver", products_path, class: "card-link" %>
           <%= link_to "Eliminar", @product, data: {turbo_method: :delete}, class: "card-link" %>
         </div>
-      </div>
+      <% end %>
     </div>
-  </div>
+  </article>  
 </section>

@@ -247,11 +247,121 @@ p {
   background: #fff;
 }
 
-/*xxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+/* Produc card*/
+.product-post {
+  display: flex;
+  align-items: center;
+  max-width: 90rem;
+  background-color: #fff;
+  padding: 2.5rem;
+  box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.8rem;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.gradient_border {
+  --white: linear-gradient(white, white);
+  --gradient: linear-gradient(to right, #31cccc, #3b86de);
+
+  border: solid 0.5rem transparent;
+  border-radius: 0.8rem;
+
+  background: 
+    var(--white) padding-box,
+    var(--gradient) border-box;
+}
 
 
+.product-post__img {
+  position: relative;
+  min-width: 35rem;
+  max-width: 35rem;
+  height: 30rem;
+  transform: translateX(-8rem);
+}
+.product-post__img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  *border-radius: 0.8rem;
+}
+.product-post__img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  *background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  box-shadow: 0.5rem 0.5rem 3rem 1px rgba(0, 0, 0, 0.05);
+  border-radius: 0.8rem;
+  *opacity: 0.5;
+}
+.product-post__featured span {
+  display: block;
+  color: #8e8c8c;
+  font-weight: 600;
+  margin: 0.1rem 0;
+}
+.product-post__title {
+  font-size: 2rem;
+  margin: 1.5rem 0 2rem;
+  text-transform: uppercase;
+  color: #4facfe;
+}
 
-/* xxxxxxxxxxxxxxxxxxxxxxxxx*/
+.product-post__info p {
+  margin-bottom: 3rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.product-description {
+  text-align: justify;
+}
+.product-post__cta {
+  display: inline-block;
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  padding: 0.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 0.5rem;
+}
+.product-post__cta:hover {
+  background-image: linear-gradient(to right, #00f2fe 0%, #4facfe 100%);
+}
+@media (max-width: 1068px) {
+  .product-post {
+    margin-top: 150px;
+    max-width: 80rem;
+  }
+  
+  .product-post__img  {
+    width: 75%;
+    height: 75%;
+    object-fit: cover;
+  }
+}
+@media (max-width: 868px) {
+  .product-post {
+    margin-top: 150px;
+    max-width: 60rem;
+  }
+  
+}
+@media (max-width: 768px) {
+  .product-post {
+    margin-top: 150px;
+    padding: 1rem;
+    flex-direction: column;
+  }
+  .product-post__img {
+    min-width: 100%;
+    transform: translate(0, -8rem);
+  }
+}
+
+/* end product card*/
 
 @media (max-width: 1070px ) {
   .tarjeta {
