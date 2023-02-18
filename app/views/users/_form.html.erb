@@ -1,60 +1,81 @@
-<section class="container">
-  <div class="card">
-  <div class= "card-body">
-    <%= form_for @user do |f| %>
-      <% if @user.errors.any? %>
-        <div style="color: red">
-          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-          <ul>
-            <% @user.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
+
+    <div class="row rounded align-items-center bg-registration my-5">
+      <div class="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6 ">
+        <div class="p-4 ">
+          <h1 class="display-4 text-dark">Hola!</h1>
+          <p class="lead text-dark">Bienvenido</p>
+          <hr class="my-4 text-dark">
+          <p class="text-dark">Espero que este nuevo cliente se mantenga por mucho tiempo con nosotros</p>
+          <p class="text-dark">Vamos a darle un servicio de calidad</p>
+          <div class="mt-2">
+            <%= link_to "Lista de empleados", users_path %>
+          </div>
         </div>
-      <% end %>
-      
-      <div class="form-group mb-4">
-        <%= f.text_field :name, autofocus: true, placeholder: "Nombre y Apellido",class: 'form-control' %>
       </div>
-
-      <div class="form-group mb-4">
-        <%= f.text_field :address, autofocus: true, placeholder: "Direccion",class: 'form-control' %>
-      </div>
-
-      <div class="form-group mb-4">
-        <%= f.text_field :phone, autofocus: true, placeholder: "Num. telefónico",class: 'form-control' %>
-      </div>
-
-      <div class="form-group mb-4">
-        <%= f.email_field :email, autofocus: true, placeholder: "Correo Electrónico", autocomplete: "email",class: 'form-control' %>
-      </div>
-
-      <%# unless current_user.Visitor? %>
-        <div class="form-group mb-4 ">
-          <%= f.select( :role, User.roles.keys, {class: "form-control "}) %>
+      <div class="col p-4 bg-registration rounded-end">
+        <div class="text-center">
+          <img class="rounded-circle img-form" src="../7.jpeg" width="150px" height="150px" alt="">
+          <img class="rounded-circle img-form" src="../8.jpeg" width="150px" height="150px" alt="">
         </div>
-      <%# end %>
+        <h2 class="fw-bold text-center pt-2 mb-5">Registrar Cliente</h2>
+        <%= form_for @user do |f| %>
+          <% if @user.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+            <ul>
+              <% @user.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+          <div class="form-group mb-4">
+            <%= f.text_field :name, autofocus: true, placeholder: "Nombre y Apellido",class: 'form-control' %>
+          </div>
 
-      <%# unless current_user.Visitor? %>
-        <div class="form-group form-check form-switch mb-4">
-          <%= f.label "Activo / Inactivo", class: "form-check-label" %>
-          <%= f.check_box :active, class: "form-check-input", placeholder: "" %>
-        </div>
-      <%# end %>
-      
-      <div class="form-group mb-4">
-        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Contraseña (6 Caracteres mínimos)", class: 'form-control' %>
-      </div>
+          <div class="form-group mb-4">
+            <%= f.text_field :address, autofocus: true, placeholder: "Direccion",class: 'form-control' %>
+          </div>
 
-      <div class="form-group mb-4">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmar Contraseña",class: 'form-control' %>
-      </div>
+          <div class="form-group mb-4">
+            <%= f.text_field :phone, autofocus: true, placeholder: "Num. telefónico",class: 'form-control' %>
+          </div>
 
-      <div class="actions d-grid">
-        <%= f.submit "Registrar", class: " w-100 btn btn-lg btn-primary" %>
+          <div class="form-group mb-4">
+            <%= f.email_field :email, autofocus: true, placeholder: "Correo Electrónico",class: 'form-control' %>
+          </div>
+
+          <%# unless current_user.Visitor? %>
+          <div class="form-group mb-4 ">
+            <%= f.select( :role, User.roles.keys, {class: "form-control "}) %>
+          </div>
+        <%# end %>
+
+        <%# unless current_user.Visitor? %>
+          <div class="form-group form-check form-switch mb-4">
+            <%= f.label "Activo / Inactivo", class: "form-check-label" %>
+            <%= f.check_box :active, class: "form-check-input", placeholder: "" %>
+          </div>
+        <%# end %>
+
+          <div class="form-group mb-4">
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> caracteres mínimos)</em>
+            <% end %><br />
+            <%= f.password_field :password, placeholder: "Clave",class: 'form-control' %>
+          </div>
+
+          <div class="form-group mb-4">
+            <%= f.password_field :password_confirmation, placeholder: "Confirmar Clave",class: 'form-control' %>
+          </div>
+
+          <div class="actions d-grid">
+            <%= f.submit "Registrar", class: " btn btn-primary btn-sm mt-3" %>
+          </div>
+        <% end %>
+        <%= render "devise/shared/links" %>
       </div>
-    <% end %>
-    <small class="text-muted"><%= render "devise/shared/links" %></small>
     </div>
-  </div>
-</section>
+  
+
+

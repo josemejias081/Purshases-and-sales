@@ -576,3 +576,17 @@ p {
 .social-two a:hover {
   color: #008000;
 }
+
+
+/*Form Registration Client*/
+
+.bg-registration {
+  background: #f3f3f3;
+  border: solid 3px  #0274be !important;
+}
+
+.img-form{
+  border: solid 3px #0274be;
+}
+
+/* End Form Registration Client*/
