@@ -580,15 +580,59 @@ p {
 
 /*Form Registration Client*/
 
-.bg-registration {
-  background: #f3f3f3;
-  border: solid 3px  #0274be !important;
+.background-radial-gradient {
+  background-color: hsl(218, 41%, 15%);
+  background-image: radial-gradient(650px circle at 0% 0%,
+      hsl(218, 41%, 35%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%),
+    radial-gradient(1250px circle at 100% 100%,
+      hsl(218, 41%, 45%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%);
 }
 
-.img-form{
-  border: solid 3px #0274be;
+#radius-shape-1 {
+  height: 220px;
+  width: 220px;
+  top: -60px;
+  left: -130px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
 }
 
+#radius-shape-2 {
+  border-radius: 50%;
+  bottom: -60px;
+  right: -110px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+
+.bg-glass {
+  background-color: hsla(0, 0%, 100%, 0.9) !important;
+  backdrop-filter: saturate(200%) blur(25px);
+}
+
+.title-one {
+  color: hsl(218, 81%, 95%);
+
+}
+
+.title-span {
+  color: hsl(218, 81%, 75%);
+
+}
+
+.paragraf {
+  color: hsl(218, 81%, 85%)
+}
 /* End Form Registration Client*/
 
 
