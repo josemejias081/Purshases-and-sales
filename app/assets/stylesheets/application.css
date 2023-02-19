@@ -620,6 +620,11 @@ p {
   backdrop-filter: saturate(200%) blur(25px);
 }
 
+.img-form {
+  width: 150px;
+  height: 150px;
+  border: solid #0a74ba 2px;
+}
 .title-one {
   color: hsl(218, 81%, 95%);
 
@@ -638,19 +643,12 @@ p {
 
 /*Form Log in*/
 
-.rounded-t-5 {
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+.card-border {
+  border-radius: 1rem;
 }
 
-@media (min-width: 992px) {
-  .rounded-tr-lg-0 {
-    border-top-right-radius: 0;
-  }
-
-  .rounded-bl-lg-5 {
-    border-bottom-left-radius: 0.5rem;
-  }
+.img-login {
+  border-radius: 1rem 0 0 1rem;
 }
 
 /* End Form Log in */
