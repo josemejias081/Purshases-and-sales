@@ -75,7 +75,7 @@ a {
   
 }
 
-/*cards categoris*/
+/*cards categories*/
 .card-content {
   justify-content: center;
   align-items: center;
@@ -92,6 +92,7 @@ a {
   background: #0274be;
   color: #fff;
 }
+
 /*bussines section*/
 .photo-company {
   background: #fe8c00;  /* fallback for old browsers */
@@ -341,6 +342,8 @@ p {
     height: 75%;
     object-fit: cover;
   }
+
+  
 }
 @media (max-width: 868px) {
   .product-post {
@@ -359,6 +362,7 @@ p {
     min-width: 100%;
     transform: translate(0, -8rem);
   }
+
 }
 
 /* end product card*/
@@ -367,6 +371,7 @@ p {
   .tarjeta {
     width: 48%;
   }
+
 }
 
 @media (max-width: 600px ) {
@@ -463,46 +468,17 @@ p {
 }
 
 .container-images .image{
-  position: relative;
+  *position: relative;
   
 }
 
 .image img{
-  object-fit: cover;
+  *object-fit: cover;
 }
 
-.overlay{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background:rgba(0, 118, 192, 0.7) ;
+.logo {
   width: 100%;
-  height: 0;
-  overflow: hidden;
-  transition: .5s ease;
-}
-
-.overlay h2{
-  color: #fff;
-  font-weight: 400;
-  font-size:30px;
-  position: absolute;
-  top: 50%;
-  left:50%;
-  text-align: center;
-  transform: translate(-50%, -50%);
-}
-.overlay h3{
-  color: #000;
-  font-weight: 300;
-  font-size:25px;
-  position: absolute;
-  margin-left: 10px;
-}
-
-.image:hover .overlay{
-  height:100%;
-  cursor: pointer;
+  height: 100%;
 }
 
 /*end overlay*/

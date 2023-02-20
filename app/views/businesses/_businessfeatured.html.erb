@@ -2,14 +2,10 @@
   <div class="row mt-3 mb-0 container-images">
     <% @businesses.each do |business| %>
       <% if business.featured? %>
-        <div class="col-md-3 mb-2 img-company image">
-          <%= link_to business, class: "card-conten" do %>
-            <%= image_tag business.logo, class: "rounded", style: "width: 100%;" %>
+        <div class="col-md-3 p-0 m-lg-2 my-md-2 mb-sm-2 mb-xs-2 rounded">
+          <%= link_to business, class: "" do %>
+            <%= image_tag business.logo, class: "rounded logo" %>
           <% end %>
-          <div class="overlay">
-            <h2><%= business.phone %></h2>
-            <h3><%= business.address %></h3>
-          </div>
         </div>
       <% end %>
     <% end %>
