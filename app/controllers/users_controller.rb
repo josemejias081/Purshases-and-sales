@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create 
+    @businesses = Business.all
     @user = User.new(user_params)
     if @user.save 
       #WelcomeMailer.notify(@user).deliver_now!
@@ -23,6 +24,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @users = User.all
+    @businesses = Business.all
   end
 
   def edit
@@ -51,7 +54,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:id, :name, :email, :role, :status, :address, :phone, :active, :password, :password_confirmation)
+      params.require(:user).permit(:id, :name, :email, :role, :status, :address, :phone, :active, :password, :password_confirmation, :business_ids)
     end
 end
 

@@ -17,6 +17,9 @@
           <li class="list-group-item">Dirección: <%= @user.address %></li>
           <li class="list-group-item">Teléfono: <%= @user.phone %></li>
           <li class="list-group-item">Rol: <%= @user.role %></li>
+          <% @user.businesses.each do |business|%>
+            <li class="list-group-item">Negocio: <%= business.name %></li>
+          <% end %>
           <% if @user.active %>
             <li class="list-group-item">Estatus: <span class="text-success fw-bold">Activo</span> </li>
           <% else %>

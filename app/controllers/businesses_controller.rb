@@ -7,6 +7,7 @@ class BusinessesController < ApplicationController
   end
  
   def show
+    @users = User.all
     @products = Product.all
     @businesses = Business.all
   end
@@ -21,17 +22,21 @@ class BusinessesController < ApplicationController
   end
 
   def create
+    @user = User.all
     @products = Product.all
     @categories = Category.all
     @business = Business.new(business_params)
     if @business.save
       redirect_to @business, notice: "Business was successfully created." 
     else
+      @user = User.all
+
       render :new, status: :unprocessable_entity 
     end
   end
 
   def update
+    @user = User.all
     @products = Product.all
       if @business.update(business_params)
         redirect_to @business, notice: "Business was successfully updated." 
@@ -52,6 +57,6 @@ class BusinessesController < ApplicationController
     end
 
     def business_params
-      params.require(:business).permit(:name, :rif, :address, :phone, :email, :ig, :fb, :location, :logo, :cover, :featured, :description, :category_id, product_ids:[])
+      params.require(:business).permit(:name, :rif, :address, :phone, :email, :ig, :fb, :location, :logo, :cover, :featured, :description, :category_id, :responsible_id, :user_id, product_ids:[])
     end
 end

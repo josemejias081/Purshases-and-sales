@@ -9,7 +9,9 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :role, presence: true
 
-  enum role: [:Visitor, :Admin, :Superadmin]
+  has_many :businesses, dependent: :destroy
+
+  enum role: [:Visitor, :Admin, :superadmin]
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role
