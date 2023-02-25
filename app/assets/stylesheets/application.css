@@ -632,3 +632,4 @@ p {
 }
 
 /* End Form Log in */
+.drop { filter: drop-shadow(0 3px 6px rgba(248, 248, 248, 0.7)); }
