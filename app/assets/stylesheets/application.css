@@ -495,6 +495,11 @@ p {
   font-size: 22px;
 }
 
+.card-title:hover {
+  color: #0274be;
+  text-transform:uppercase;
+}
+
 .card-content:hover {
   background: #0274be;
   color: #fff;
@@ -552,7 +557,6 @@ p {
 .social-two a:hover {
   color: #008000;
 }
-
 
 /*Form Registration Client*/
 
@@ -628,4 +632,3 @@ p {
 }
 
 /* End Form Log in */
-

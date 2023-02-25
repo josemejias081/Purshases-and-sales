@@ -1,100 +1,113 @@
-<%= form_with(model: business) do |form| %>
-  <% if business.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(business.errors.count, "error") %> prohibited this business from being saved:</h2>
+<section class="background-radial-gradient overflow-hidden">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100 mt-5">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <h1 class="text-white">New business</h1>
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 text-white">
+        <%= form_with(model: business) do |form| %>
+          <% if business.errors.any? %>
+            <div style="color: red">
+              <h2><%= pluralize(business.errors.count, "error") %> prohibited this business from being saved:</h2>
 
-      <ul>
-        <% business.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+              <ul>
+                <% business.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="form-outline mb-4">
+            <%= form.label :Logo, style: "form-label" %>
+            <%= form.file_field :logo, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :Portada, style: "form-label" %>
+            <%= form.file_field :cover, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :Nombre, style: "form-label" %>
+            <%= form.text_field :name, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :description, style: "form-label" %>
+            <%= form.text_field :description, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :rif, style: "form-label" %>
+            <%= form.text_field :rif, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :address, style: "form-label" %>
+            <%= form.text_field :address, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :phone, style: "form-label" %>
+            <%= form.text_field :phone, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :email, style: "form-label" %>
+            <%= form.email_field :email, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :instagram, style: "form-label" %>
+            <%= form.text_field :ig, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :facebook, style: "form-label" %>
+            <%= form.email_field :fb, class: "form-control form-control-lg" %>
+          </div>
+
+           <div class="form-outline mb-4">
+            <%= form.label :ubicacion, style: "form-label" %>
+            <%= form.email_field :location, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :category, style: "form-label" %>
+            <%= collection_select(:business,:category_id, Category.all, :id, :name, { class: "form-control form-control-lg" }) %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :Product, style: "form-label" %>
+            <%= form.select :product_ids, options_from_collection_for_select(@products, :id, :name, @business.products.pluck(:id)), {}, multiple: false, id: "product_ids", class: "form-control form-control-lg"%>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :User, style: "form-label" %>
+            <%= collection_select(:business,:user_id, User.all, :id, :name, { class: "form-control form-control-lg" }) %>
+          </div>
+
+          <div class="row">
+            <div class="col form-check form-switch mt-3 mx-3">
+              <%= form.label "Marcar como destacado", class: "form-check-label" %>
+              <%= form.check_box :featured, class: "form-check-input", placeholder: "" %>
+            </div>
+          </div>
+
+          <div class="text-center text-lg-start my-4 pt-2">
+            <%= form.submit "regisrar", class: "btn btn-primary btn-sm" %>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :Logo, style: "display: block" %>
-    <%= form.file_field :logo %>
-  </div>
-
-  <div>
-    <%= form.label :Portada, style: "display: block" %>
-    <%= form.file_field :cover %>
-  </div>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :rif, style: "display: block" %>
-    <%= form.text_field :rif %>
-  </div>
-
-  <div>
-    <%= form.label :address, style: "display: block" %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div>
-    <%= form.label :phone, style: "display: block" %>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div>
-    <%= form.label :ig, style: "display: block" %>
-    <%= form.text_field :ig %>
-  </div>
-
-  <div>
-    <%= form.label :fb, style: "display: block" %>
-    <%= form.text_field :fb %>
-  </div>
-
-  <div>
-    <%= form.label :location, style: "display: block" %>
-    <%= form.text_field :location %>
-  </div>
-
-  <div>
-    <%= form.label :category, style: "display: block" %>
-    <%# collection_select(:business, :category_id, @categories, :id, :name, {:prompt => 'Seleccione una categoría'}, { class: "form-control" })%>
-    <%= collection_select(:business,:category_id, Category.all, :id, :name) %>
-  </div>
-
-  <div>
-    <%= form.label :Product, style: "display: block" %>
-    <%# collection_select(:business, :category_id, @categories, :id, :name, {:prompt => 'Seleccione una categoría'}, { class: "form-control" })%>
-    <%# collection_select(:business,:product_ids, Product.all, :id, :name) %>
-    <%= form.select :product_ids, options_from_collection_for_select(@products, :id, :name, @business.products.pluck(:id)), {}, multiple: true, id: "product_ids", class: "form-control"%>
-  </div>
-
-  <div>
-    <%= form.label :User, style: "display: block" %>
-    <%# collection_select(:business, :category_id, @categories, :id, :name, {:prompt => 'Seleccione una categoría'}, { class: "form-control" })%>
-    <%# collection_select(:business,:product_ids, Product.all, :id, :name) %>
-    <%# form.collection_select(:responsible_id, @users, :id, :name) %>
-    <%= collection_select(:business,:user_id, User.all, :id, :name) %>
-  </div>
-
-  <div class="row">
-    <div class="col form-check form-switch mt-3 mx-3">
-      <%= form.label "Marcar como destacado", class: "form-check-label" %>
-      <%= form.check_box :featured, class: "form-check-input", placeholder: "" %>
+      </div>
     </div>
   </div>
-
-  <div>
-    <%= form.submit %>
+  <div
+    class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+    <!-- Copyright -->
+    <div class="text-white mb-3 mb-md-0">
+      <%= link_to "Back to businesses", businesses_path, class: "text-white" %>
+    </div>
   </div>
-<% end %>
+</section>

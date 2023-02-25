@@ -1,10 +1,10 @@
-<p style="color: green"><%= notice %></p>
-<h1>Products list</h1>
-<div class= "row ">
-  <% @products.each do |product| %>
-    <div class= "col-md-3">
-      <%= render product %>   
-    </div>
-  <% end %>
-</div>
-<%= link_to "New product", new_product_path %>
+<section class= "container-fluid background-radial-gradient overflow-hidden over">
+  <div class= "row">
+    <h1 class= "text-white">Products list</h1>
+    <% @products.each do |product| %>
+      <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6 mt-2 mb-2">
+        <%= render product %>   
+      </div>
+    <% end %>
+    <%= link_to "New product", new_product_path %>
+  </div>
