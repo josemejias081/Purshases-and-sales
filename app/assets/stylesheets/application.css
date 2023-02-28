@@ -628,3 +628,54 @@ p {
 
 /* End Form Log in */
 .drop { filter: drop-shadow(0 3px 6px rgba(248, 248, 248, 0.7)); }
+
+
+.alert {
+  visibility: visible;
+  animation: fadeOut 5s 1;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+
+.contacto a {
+  display: block;
+  margin-bottom: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 32px;
+}
+
+.wa {
+  color: #25D366;
+}
+
+.em {
+  color: #00B2FF;
+}
+
+.ig {
+  color: #C13584;
+}
+
+.wa:hover {
+  color: #25D366
+}
+
+.em:hover {
+  color: #00B2FF;
+}
+
+.ig:hover {
+  color: #C13584;
+  
+}

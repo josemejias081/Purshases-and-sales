@@ -4,4 +4,7 @@ class HomeController < ApplicationController
     @products = Product.all
     @businesses = Business.all
   end
+
+  def contact
+  end
 end

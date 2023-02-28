@@ -4,3 +4,9 @@
 <% if alert %>
   <p class="alert alert-danger text-center"><%= alert %></p>
 <% end %>
+
+<script>
+  setTimeout(function(){
+    document.querySelector('.alert').remove();
+  }, 5000);
+</script>

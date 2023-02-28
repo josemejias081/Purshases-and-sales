@@ -5,7 +5,7 @@
       <h3>Brindamos todas las facilidades para un mejor acercamiento a tus clientes y los potenciales clientes</h3>
       <p class="text-justify"> Muchas personas usan telopublico.com para ofrecer, comprar o saber a donde ir cuando necesite algo. Tus anuncios pueden mostrarse en internet cuando alguien busca productos o servicios como los ofrecidos por ti.</p>
       <p class="text-justify">Los usuarios verán tus productos o servicios desde cualquier dispositivo, ya sea una Pc, Smartphone o una Tablet; convirtiendo a este internauta en un potencial cliente.</p>
-      <a class="btn btn-info btn-sm" href="#">Contratar Servicios</a>
+      <%= link_to "Contratar Servicios", contact_path, class: "btn btn-sm btn-info"%>
     </div>
   </div>
 
@@ -21,7 +21,7 @@
     <div class="col-md-6 my-3"> 
       <h3>El sitio publicitario más asequible y con mayor alcance de la ciudad.</h3>
       <p class="text-justify"> Un párrafo descriptivo que les dice a los clientes lo bueno que somos y demuestra que somos la mejor elección que han hecho. Podemos usar algunas palabras atractivas y hacer alarde de las capacidades que atraerán a futuros clientes y los animarán a contratarlo de inmediato. Hagamos una lista de servicios planes para ofrecer.</p>
-      <a class="btn btn-info btn-sm" href="#">Contratar Servicios</a>
+      <%= link_to "Contratar Servicios", contact_path, class: "btn btn-sm btn-info"%>
     </div>
     <div class="col-md-6"> <img src="gallery-2.jpg" alt="" class="rounded shadow" style="width: 100%;"> </div>
   </div>
@@ -46,7 +46,7 @@
         <p class="text-justify">Te brindamos los mejores planes publicitarios para que tu negocio crezca cada día más..!</p>
       </div>
       <div class="col-md-6"><img src="telopublico-1024x568.jpg" alt="" style="width: 100%;"></div>
-      <div class="col-md-2"><a href="#contact" class="btn btn-info btn-block">Quiero afiliarme</a></div>
+      <div class="col-md-2"><%= link_to "Quiero afiliarme", contact_path, class: "btn btn-sm btn-info btn-block"%></div>
     </div>
   </section>
   <!--Product Gallery-->
