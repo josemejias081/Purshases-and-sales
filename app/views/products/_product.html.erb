@@ -1,20 +1,31 @@
-<div class="card">      
-    <% if product.image.attached? %>
-      <%= image_tag product.image, size: "250x200", class:"card-img-top" %>
-    <% else %>
-      <img src="https://www.yeaah.co/wp-content/uploads/2021/08/producto-sin-imagen.jpg" class="card-img-top" alt="" width="250" height="200">
-    <% end %>
+<div class="card" >
+  <% if product.image.attached? %>
+    <%= image_tag product.image, class:"card-img-top img" %>
+  <% else %>
+    <img src="https://www.yeaah.co/wp-content/uploads/2021/08/producto-sin-imagen.jpg" class="card-img-top" alt="">
+  <% end %>
   <div class="card-body">
-    <h5 class="card-title">Producto: <%= product.name %></h5>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item text-truncate">Presentacion: <%= product.presentation %></li>
-      <li class="list-group-item">Precio: <%= product.price %></li>
-      <li class="list-group-item">Distribuidor: <%= product.business.name %></li>
-    </ul>
-  </div>
-  <div class="card-footer d-grid gap-2">
-    <%= link_to "Ver este producto", product, class: "btn btn-primary" %>
+    <h5 class="card-title-product mb-0">U$S <%= product.price %></h5>
+    <small class="text-success">Envio gratis</small>
+    <div class=" card-text-two">
+      <p class="text-truncate"><%= product.presentation %></p>
+      <ul class="list-unstyled">
+        <li>Descuento: 10%</li>
+        <li>Precio: <%= product.price %> $</li>
+        <li>Distribuidor: <%= product.business.name %></li>
+      </ul>
+      <%= link_to "Ver este producto", product, class: "btn btn-product btn-primary" %>
+    </div>
   </div>
 </div>
+  
+    
+      
+        
+        
+      
+    
+  
+
 
 

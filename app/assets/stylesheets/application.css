@@ -679,3 +679,32 @@ p {
   color: #C13584;
   
 }
+/** cards products **/
+
+.img {
+  width: auto;
+  height: 200px;
+}
+
+.card-title-product {
+  color: #084298;
+}
+
+.card-text {
+  color: #212121;
+  text-align: justify;
+}
+.card-text-two {
+  color: #fff;
+  transition: 0.5s;
+}
+
+.card-text-two:hover {
+  color: #212121;
+  text-align: justify;
+}
+
+.card-text, .btn-product {
+  margin: 10px 0;
+  width: 100%;
+}
