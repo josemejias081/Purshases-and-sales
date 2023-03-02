@@ -708,3 +708,100 @@ p {
   margin: 10px 0;
   width: 100%;
 }
+
+
+/* negocios destacados 28-02-23 */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flexible {
+  display: flex;
+  
+}
+
+.center {
+  text-align: center;
+}
+
+.card-business {
+  width: 23%;
+  border: 1px solid #fff;
+  background: rgba( 255, 255, 255, 0.25 );
+  *box-shadow: 0 8px 32px 0 rgba(246, 246, 248, 0.37);
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 5px;
+  *border: 1px solid rgba(14, 7, 7, 0.18);
+  padding: 10px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+/* Card Header Section Two*/
+.card-header-business {
+  display: flex;
+  background: #f1f1f1;
+  align-items: center;
+  padding: 10px;
+
+}
+
+.photo-header {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #084298;
+  border-radius: 10px;
+}
+
+.card-title-header {
+  margin: 0 auto;
+}
+
+/* End Card Header SectionTwo*/
+.btn-card-business {
+  background: #084298;
+  color: #fff;
+  padding: 10px;
+  display: block;
+  border-radius: 3px;
+  text-decoration: none;margin-bottom: 20px;
+}
+
+.btn-card-business:hover {
+  background: #ffffff;
+  border: 1px solid #084298;
+  color: #084298;
+  
+}
+
+
+@media (max-width: 1070px ) {
+  .card-business {
+    width: 48%;
+  }
+
+  .col-xs-4 {
+    width: 23%;
+  }
+
+  h5 {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 600px ) {
+  .card-business {
+    width: 48%;
+  }
+
+  .col-xs-4 {
+    width: 23%;
+  }
+
+  h5 {
+    font-size: 0.75rem;
+  }
+}

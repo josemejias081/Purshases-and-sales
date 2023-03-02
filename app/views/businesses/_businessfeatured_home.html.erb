@@ -1,11 +1,24 @@
-<div class="row mt-3 mb-3 ">
-  <% @businesses.each do |business| %>
-    <% if business.featured? %>
-      <div class="col-md-3 mb-2">
-        <%= link_to business, class: "card-conten" do %>
-          <%= image_tag business.logo, class: "rounded size-logo"%>
-        <% end %>
+<% @businesses.each do |business| %>
+  <% if business.featured? %>
+    <div class="card-business">
+      <div class="card-header-business">
+        <%= image_tag business.logo, class: "photo-header"%>
+        <h5 class="card-title-header"><%= business.name %></h5>
       </div>
-    <% end %>
+             
+      <section class="row flexible">
+        <% business.products.each do |product| %>
+          <div class="col-md-3 col-xs-4">
+            <% if product.image.attached? %>
+              <%= image_tag url_for(product.image), class:"rounded border", style:"width: 50px; height: 50px;" %>
+            <% else %>
+              <img src="producto-sin-imagen.jpg" alt="" class="rounded border" style="width: 80px; height: 80px;">
+            <% end %>
+          </div>
+        <% end %>
+      </section>
+      <%= link_to "Visitar", business, class: "btn-card-business" %>
+    </div>
   <% end %>
-</div>
+<% end %>
+
