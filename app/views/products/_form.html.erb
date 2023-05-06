@@ -5,7 +5,7 @@
       <h1 class="text-white">Agregar nuevo producto</h1>
         <h1 class="my-5 display-5 fw-bold ls-tight title-one">
           Hola! <br />
-          <% if current_user.Admin? || current_user.superadmin? %>
+          <% if current_user.admin? || current_user.superadmin? %>
             <%= current_user.name%>
           <% end %>
           <span class="title-span">Bienvenido</span>
@@ -51,7 +51,7 @@
           </div>
           
           <div class="form-outline mb-4">
-            <%= form.label :Producto, style: "form-label" %>
+            <%= form.label :Negocio, style: "form-label" %>
             <%= collection_select(:product, :business_id, @businesses, :id, :name, {:prompt => 'Seleccione un negocio'}, { class: "form-control form-control-lg" })%>
           </div>
 

@@ -2,14 +2,20 @@ class BusinessesController < ApplicationController
   load_and_authorize_resource
   before_action :set_business, only: [ :show, :edit, :update, :destroy ]
 
-  def index
-    @businesses = Business.all
+  def index   
+    if current_user.is_superadmin?
+      @businesses = Business.all.order("created_at DESC")
+    else
+      @businesses = current_user.businesses
+    end
   end
  
   def show
-    @users = User.all
+    @product = Product.new
     @products = Product.all
     @businesses = Business.all
+    
+    
   end
   
   def new
@@ -22,10 +28,12 @@ class BusinessesController < ApplicationController
   end
 
   def create
+    #@product = Product.new
     @user = User.all
     @products = Product.all
     @categories = Category.all
-    @business = Business.new(business_params)
+    #@business = Business.new(business_params)
+
     if @business.save
       redirect_to @business, notice: "Business was successfully created." 
     else
@@ -38,6 +46,7 @@ class BusinessesController < ApplicationController
   def update
     @user = User.all
     @products = Product.all
+    @businesses = Business.all
       if @business.update(business_params)
         redirect_to @business, notice: "Business was successfully updated." 
       else
@@ -57,6 +66,6 @@ class BusinessesController < ApplicationController
     end
 
     def business_params
-      params.require(:business).permit(:name, :rif, :address, :phone, :email, :ig, :fb, :location, :logo, :cover, :featured, :description, :category_id, :responsible_id, :user_id, product_ids:[])
+      params.require(:business).permit(:name, :rif, :address, :phone, :email, :ig, :fb, :location, :logo, :cover, :featured, :description, :category_id, :user_id, product_ids: [])
     end
 end

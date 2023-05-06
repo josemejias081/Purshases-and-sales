@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_26_164630) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_09_175925) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -65,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_26_164630) do
     t.string "cover"
     t.boolean "featured"
     t.string "description"
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.index ["category_id"], name: "index_businesses_on_category_id"
     t.index ["user_id"], name: "index_businesses_on_user_id"
   end

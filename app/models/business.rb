@@ -1,8 +1,8 @@
 class Business < ApplicationRecord
-  belongs_to :category
-  belongs_to :user
+  belongs_to :category, optional: true
+  belongs_to :user, optional: true
 
-  #validates :responsible, presence: true
+  #validates :user, presence: true
 
   #belongs_to :responsible, class_name: "User"
 

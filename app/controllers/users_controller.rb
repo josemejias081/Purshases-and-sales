@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @businesses = Business.all
   end
 
   def create 
@@ -26,12 +27,16 @@ class UsersController < ApplicationController
   def show
     @users = User.all
     @businesses = Business.all
+    @user = User.find(params[:id])
+    
   end
 
   def edit
+    @businesses = Business.all
   end
 
   def update
+    @businesses = Business.all
     if @user.update(user_params)
       redirect_to @user
     else

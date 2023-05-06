@@ -48,6 +48,7 @@
   <div>
     <%= link_to "Edit this business", edit_business_path(@business) %> |
     <%= link_to "Back to businesses", businesses_path %> |
+    <%= link_to 'New Product', new_business_product_path(@business) %> |
     <%= link_to "Destroy this business", @business, data: {turbo_method: :delete} %>
   </div>
 </section>

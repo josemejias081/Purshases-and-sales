@@ -1,9 +1,13 @@
 class ProductsController < ApplicationController
   load_and_authorize_resource
   before_action :set_product, only: [ :show, :edit, :update, :destroy ]
+  
+  
   def new
+    @users = User.all
     @product = Product.new
-    @businesses = Business.all
+    @businesses = Business.all    
+    
   end
 
   def show
@@ -12,21 +16,28 @@ class ProductsController < ApplicationController
   end
 
   def create
+   
+    @users = User.all
+    
     @businesses = Business.all
-    @product = Product.new(product_params)
-
+    @product = Product.new(product_params)  
     if @product.save
       redirect_to @product, notice: "Product was successfully created"
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, alert: "Product was not successfully created"
     end
+    
   end
 
   def edit
+    @users = User.all
     @businesses = Business.all
+    @products = Product.all
+    #@product = @business.product.find(params[:id])#####
   end
 
   def update
+    #@product = @business.products.find(params[:id])######
     if @product.update(product_params)
       redirect_to @product
     else
@@ -44,11 +55,14 @@ class ProductsController < ApplicationController
   end
 
   private
+    
     def set_product
       @product = Product.find(params[:id])
     end
 
+  
+
     def product_params
-      params.require(:product).permit(:image, :name, :price, :presentation, :featured, :business_id)
+      params.require(:product).permit(:image, :name, :price, :presentation, :featured, :business_id, :user_id)
     end
 end
