@@ -4,8 +4,9 @@ class ProductsController < ApplicationController
   
   
   def new
+    #debugger
     @users = User.all
-    @product = Product.new
+    @product = Product.new(business_id: @business_id)
     @businesses = Business.all    
     
   end
@@ -17,10 +18,14 @@ class ProductsController < ApplicationController
 
   def create
    
-    @users = User.all
+   # @users = User.all
     
     @businesses = Business.all
+
+    @product = Product.new(business_id: @business_id)
     @product = Product.new(product_params)  
+
+    
     if @product.save
       redirect_to @product, notice: "Product was successfully created"
     else

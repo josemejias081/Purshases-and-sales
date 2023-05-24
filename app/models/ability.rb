@@ -13,16 +13,17 @@ class Ability
 
         can :read, Category
 
-        can :read, Business#el resto de permisos delimitar en las vistas (no mostrar los links en las vistas puede ser usando unless)
-        can :update, Business, user_id: user.id
+        #can :read, Business#el resto de permisos delimitar en las vistas (no mostrar los links en las vistas puede ser usando unless)
+        #can :update, Business, user_id: user.id
+        can :manage, Business, user_id: user.id
 
         #can :read, Product
         
-        #can :create, Product, business_id: user.businesses
+        
         #can :manage, Product, business_id: user.businesses
         
-        can :create, Product, business: { user_id: user.id }
-        
+        #can :manage, Product, business_id: user.business_ids
+        can :create, Product
         
 
         

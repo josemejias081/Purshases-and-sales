@@ -6,7 +6,7 @@ class BusinessesController < ApplicationController
     if current_user.is_superadmin?
       @businesses = Business.all.order("created_at DESC")
     else
-      @businesses = current_user.businesses
+      @businesses = current_user.businesses #este permiso mejorarlo en la vista con un unless para que solo pueda joder a su empresa
     end
   end
  
@@ -25,10 +25,14 @@ class BusinessesController < ApplicationController
 
   def edit
     @products = Product.all
+    
   end
 
   def create
-    #@product = Product.new
+    #debugger
+    @product = Product.new(business_id: @business_id)
+   
+    #@product = Product.find(params[:product_id])
     @user = User.all
     @products = Product.all
     @categories = Category.all
