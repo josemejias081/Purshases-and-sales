@@ -49,11 +49,29 @@
             <%= form.label :Precio, style: "form-label" %>
             <%= form.text_field :price, class: "form-control form-control-lg" %>
           </div>
-          
+
+<div  style="border: solid; #ffdf2d; 2px;">     
           <div class="form-outline mb-4">
-            <%= form.label :Negocio, style: "form-label" %>
-            <%= collection_select(:product, :business_id, @businesses, :id, :name, {:prompt => 'Seleccione un negocio'}, { class: "form-control form-control-lg" })%>
+            <% form.label :Negocio, style: "form-label" %>
+            <% collection_select(:product, :business_id, @businesses, :id, :name, {:prompt => 'Seleccione un negocio'}, { class: "form-control form-control-lg" })%>
           </div>
+
+          <div class="form-row">
+            <% if current_user.is_superadmin?%>
+              <div class="form-group col-md-6">
+                <label>Empresa</label><br>
+                <%= collection_select(:product, :business_id, @businesses, :id, :name, {:prompt => 'Seleccione un negocio'}, { class: "form-control form-control-lg" })%>       
+              </div>
+            <% else current_user.is_admin? %>
+              <%= collection_select(:product, :business_id, current_user.businesses, :id, :name, {:prompt => 'Nombre de su negocio'}, { class: "form-control form-control-lg" })%>       
+            <% end %>
+            
+          </div>
+</div>
+
+
+
+
 
           <div class="row">
             <div class="col form-check form-switch mt-3 mx-3">

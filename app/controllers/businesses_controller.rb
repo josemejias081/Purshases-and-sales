@@ -36,6 +36,7 @@ class BusinessesController < ApplicationController
     @user = User.all
     @products = Product.all
     @categories = Category.all
+    @products = Product.limit(4)
     #@business = Business.new(business_params)
 
     if @business.save

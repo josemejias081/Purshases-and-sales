@@ -3,7 +3,9 @@ class Product < ApplicationRecord
   has_one_attached :image
 
   #validates :images, content_type: ['image/png', 'image/jpg', 'image/jpeg']     
-  #validates :images, limit: { min: 1, max: 3 }
+  
+
+  validate :validate_product_limit
 
   def images_validation
     if images.attached?
@@ -14,4 +16,12 @@ class Product < ApplicationRecord
       end
     end
   end
+
+  private
+    def validate_product_limit
+      return unless self.business
+      if self.business.products.count >= 4
+        errors.add(:base, "Se ha alcanzado el límite máximo de productos para este negocio. Puedes eliminar uno de tus productos antiguos y sustituirlo por uno nuevo")
+      end
+    end
 end

@@ -23,7 +23,8 @@ class Ability
         #can :manage, Product, business_id: user.businesses
         
         #can :manage, Product, business_id: user.business_ids
-        can :create, Product
+        #can :create, Product
+        can :manage, Product
         
 
         

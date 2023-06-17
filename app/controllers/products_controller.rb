@@ -17,13 +17,13 @@ class ProductsController < ApplicationController
   end
 
   def create
-   
-   # @users = User.all
+    @users = User.all
     
     @businesses = Business.all
 
     @product = Product.new(business_id: @business_id)
     @product = Product.new(product_params)  
+    
 
     
     if @product.save
