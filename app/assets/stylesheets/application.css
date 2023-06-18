@@ -44,6 +44,14 @@ a {
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }
 
+.hero {
+  background-image: url(../news.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 800px;
+
+}
+
 .header {
   color: #e0fbfc;
   background-size: cover;
