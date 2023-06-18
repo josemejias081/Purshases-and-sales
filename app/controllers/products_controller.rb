@@ -42,9 +42,12 @@ class ProductsController < ApplicationController
   end
 
   def update
-    #@product = @business.products.find(params[:id])######
+    @users = User.all
+    @businesses = Business.all
+    @products = Product.all
     if @product.update(product_params)
-      redirect_to @product
+      
+      redirect_to @product, notice: "Product was successfully updated."
     else
       render "edit", status: :unprocessable_entity
     end

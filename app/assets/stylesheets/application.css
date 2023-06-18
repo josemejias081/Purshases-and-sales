@@ -16,6 +16,10 @@
 
  /*Header categories*/
 
+ :root {
+   --status: <%= current_event.status %>;
+ }
+
  * {
   margin: 0;
   padding: 0;
@@ -311,7 +315,7 @@ p {
   color: rgba(0, 0, 0, 0.7);
 }
 
-.product-description {
+.product-description p {
   text-align: justify;
 }
 .product-post__cta {
@@ -425,6 +429,57 @@ p {
   height: 250px;
   padding: 10px;
 }
+
+/* event card ribbon*/
+.card {
+  position: relative;
+  z-index: 2 !important;
+}
+
+.ribbon-wrap {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
+.ribbon-wrap::before, .ribbon-wrap::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: #0dcaf0;
+  position: absolute;
+  z-index: -1;
+  border-radius: 5px;
+}
+
+.ribbon-wrap::before {
+  top: 0;
+  right: 0;
+}
+
+.ribbon-wrap::after {
+  bottom: 0;
+  left: 0;
+}
+
+.ribbon {
+  width: 225px;
+  text-transform: capitalize;
+  text-align: center;
+  padding: 8px 0;
+  background: #006efd;
+  color: #ffffff;
+  position: absolute;
+  transform: rotate(-45deg) translateY(-10px);
+  right: -17%;
+  top: 29%;
+  
+}
+/* event card ribbon*/
+
 
 /*Comence aqui*/
 

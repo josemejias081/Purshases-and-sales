@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_09_175925) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_17_112417) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -78,6 +78,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_09_175925) do
     t.datetime "updated_at", null: false
     t.string "icon"
     t.boolean "featured"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "date"
+    t.string "location"
+    t.string "speaker"
+    t.string "portrait"
+    t.boolean "cost"
+    t.boolean "modality", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "price", precision: 5, scale: 2
+    t.integer "status", default: 0
   end
 
   create_table "products", force: :cascade do |t|

@@ -1,0 +1,13 @@
+<section class= "container-fluid background-radial-gradient overflow-hidden over py-5">
+  <div class="container my-5">
+    <div class= "row row justify-content-center">
+      <h1 class= "text-white">Próximos Eventos</h1>
+      <% @events.each do |event| %>
+        <div class="col-lg-3">
+          <%= render event %>   
+        </div>
+      <% end %>
+      <%= link_to "New evento", new_event_path %>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,89 @@
+<section class="background-radial-gradient overflow-hidden">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100 mt-5">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <h1 class="text-white">New Event</h1>
+        <img src="/event.png"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 text-white">
+        <%= form_with(model: event) do |form| %>
+          <% if event.errors.any? %>
+            <div style="color: red">
+              <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+              <ul>
+                <% event.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="form-outline mb-4">
+            <%= form.label :Portada, style: "form-label" %>
+            <%= form.file_field :portrait, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :Nombre, style: "form-label" %>
+            <%= form.text_field :name, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :description, style: "form-label" %>
+            <%= form.text_field :description, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :Fecha, style: "form-label" %>
+            <%= form.text_field :date, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :Dirección, style: "form-label" %>
+            <%= form.text_field :location, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :Ponentes, style: "form-label" %>
+            <%= form.text_field :speaker, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="form-outline mb-4">
+            <%= form.label :Precio, style: "form-label" %>
+            <%= form.text_field :price, class: "form-control form-control-lg" %>
+          </div>
+
+          <div class="row">
+            <div class="form-outline mb-4">
+              <%= form.select( :status, Event.statuses.keys, {class: "form-control "}) %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col form-check form-switch mt-3 mx-3">
+              <%= form.label "Marcar como pago", class: "form-check-label" %>
+              <%= form.check_box :cost, class: "form-check-input", placeholder: "" %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col form-check form-switch mt-3 mx-3">
+              <%= form.label "Marcar como Online", class: "form-check-label" %>
+              <%= form.check_box :modality, class: "form-check-input", placeholder: "" %>
+            </div>
+          </div>
+
+          <div class="text-center text-lg-start my-4 pt-2">
+            <%= form.submit "regisrar", class: "btn btn-primary btn-sm" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div
+    class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+    <div class="text-white mb-3 mb-md-0">
+      <%= link_to "Back to events", events_path, class: "text-white" %>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+<div class="card card-event" > 
+  <div class= "ribbon-wrap">
+    <div class= "ribbon"><%= event.status %></div>
+  </div>
+  <% if event.portrait.attached? %>
+    <%= image_tag event.portrait, class:"card-img-top img" %>
+  <% else %>
+    <img src="https://www.yeaah.co/wp-content/uploads/2021/08/producto-sin-imagen.jpg" class="card-img-top" alt="">
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title-product mb-0"><%= event.name %></h5>
+    <small class="text-success"><%= event.date %></small>
+    <ul class="list-unstyled">
+      <li>Ubicación: <%= event.location %></li>
+      <li>Precio: $ <%= event.price.to_s %> </li>
+    </ul>
+    <div class=" card-text-two">
+      <%= link_to "Ver este evento", event, class: "btn btn-product btn-primary" %>
+    </div>
+  </div>
+</div>

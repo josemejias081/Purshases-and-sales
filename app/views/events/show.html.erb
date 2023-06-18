@@ -1,0 +1,46 @@
+
+<hr class="divider">
+<section class= "container">
+  <article class="product-post gradient_border">
+    <div class="product-post__img gradient_border">
+      <% if @event.portrait.attached? %>
+          <%= image_tag @event.portrait, class:"img-fluid" %>
+        <% else %>
+          <img src="https://www.yeaah.co/wp-content/uploads/2021/08/producto-sin-imagen.jpg" class="img" alt="" >
+      <% end %>
+    </div>
+    <div class="product-post__info">
+      <div class="product-post__featured">
+      <h2 class="product-post__title"><%= @event.name %></h2>
+        <span><%= @event.date %></span>
+        <% if @event.cost? %>
+          <span>Costo: $ <%= @event.price.to_s %></span>
+        <% else%>
+          <span>GRATIS</span>
+        <% end %>
+      </div>
+      
+      <p class="product-description">
+        <%= @event.description %>
+      </p>
+    
+      <p class="product-description">Ponentes: <%= @event.speaker %><p>
+      <p class="product-description">
+        <% if @event.modality? %>
+          <span>Modalidad: Online</span>
+        <% else%>
+          <span>Modalidad: Presencial</span>
+        <% end %>
+      </p>
+      <p class="product-description">Localidad: <%= @event.location %></p>
+      
+      <% unless current_user.visitor?%>
+        <div class="card-footer text-center mt-2">
+          <%= link_to "Editar", edit_event_path(@event), class: "card-link" %>
+          <%= link_to "Volver", events_path, class: "card-link" %>
+          <%= link_to "Eliminar", @event, data: {turbo_method: :delete}, class: "card-link" %>
+        </div>
+      <% end %>
+    </div>
+  </article>  
+</section>

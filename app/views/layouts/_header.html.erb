@@ -20,6 +20,9 @@
               <hr class="divider">
             <li><i class="fas fa-plus-square"></i> <%= link_to 'Agregar cliente', new_user_path, class: "text-white" %></li>
             <li><%= link_to "Clientes", users_path, class: "text-white" %>  <i class="fas fa-users"></i>
+              <hr class="divider">
+            <li><i class="fas fa-plus-square"></i> <%= link_to 'Agregar Evento', new_event_path, class: "text-white" %></li>
+            <li><%= link_to "Eventos", events_path, class: "text-white" %>  <i class=" fas fa-solid fa-calendar-check"></i>
             
           </ul>
         </div>
@@ -35,6 +38,13 @@
             <li><a href="#" class="text-white"><i class="fab fa-linkedin"></i> Linkedin</a></li>
             <li><a href="#" class="text-white"><i class="fab fa-instagram"></i> Instagram</a></li>
             <li><a href="#" class="text-white"><i class="fab fa-facebook-square"></i></i> Facebook</a></li>
+          </ul>
+          <h4 class="text-white">Specials</h4>
+          <ul class="list-unstyled">            
+            
+            <li><i class=" fas fa-solid fa-calendar-check"></i> <%= link_to "Eventos", events_path, class: "text-white" %>
+            <li><a href="#" class="text-white"><i class="fab fa-instagram"></i> Noticias</a></li>
+            <li><a href="#" class="text-white"><i class="fab fa-facebook-square"></i></i> Otros</a></li>
           </ul>
         </div>
       </div>
