@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_17_112417) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_25_172328) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -107,6 +107,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_17_112417) do
     t.index ["business_id"], name: "index_products_on_business_id"
   end
 
+  create_table "properties", force: :cascade do |t|
+    t.integer "type_property", default: 0
+    t.decimal "area"
+    t.integer "roof", default: 0
+    t.integer "floor", default: 0
+    t.integer "bedroom", default: 0
+    t.integer "bathroom", default: 0
+    t.string "location"
+    t.text "special_feature"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image"
+    t.decimal "price"
+    t.string "portrait"
+    t.string "phone"
+    t.integer "status", default: 0
+    t.index ["user_id"], name: "index_properties_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -129,4 +149,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_17_112417) do
   add_foreign_key "businesses", "categories"
   add_foreign_key "businesses", "users"
   add_foreign_key "products", "businesses"
+  add_foreign_key "properties", "users"
 end

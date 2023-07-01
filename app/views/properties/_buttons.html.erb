@@ -1,0 +1,5 @@
+<div class="card-footer text-center">
+  <%= link_to "Editar", edit_property_path(@property), class: "card-link" %>
+  <%= link_to "Volver", properties_path, class: "card-link" %>
+  <%= link_to "Eliminar", @property, data: {turbo_method: :delete}, class: "card-link" %>
+</div>

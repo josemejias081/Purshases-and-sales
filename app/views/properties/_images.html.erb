@@ -1,0 +1,12 @@
+<% if @property.images.attached? %>
+  <% @property.images.each do |image| %>
+    <% if image.id %>
+      <figure class="figure">
+        <img src="<%=(url_for(image)) %>" class=" card-img-top" >
+        <%= link_to 'Remover imagen', properties_path(@property.id, image.id),
+                                                                                      turbo_method: :delete,
+                                                                                      data: { confirm: 'Are you sure?' }, class:"figure-caption text-white" %>
+      </figure>
+    <% end %>
+  <% end%>
+<% end%>

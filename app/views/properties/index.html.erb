@@ -1,0 +1,13 @@
+<section class= "container-fluid background-radial-gradient overflow-hidden over py-5">
+  <div class="container my-5">
+    <div class= "row justify-content-center">
+      <h1 class= "text-white">Properties list</h1>
+      <% @properties.each do |property| %>
+        <div class="col-lg-4">
+          <%= render property %>   
+        </div>
+      <% end %>
+      <%= link_to "New property", new_property_path %>
+    </div>
+  </div>
+</section>

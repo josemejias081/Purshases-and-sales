@@ -1,0 +1,130 @@
+<div class=" header categories ">
+  <div class="container contenedor">
+    <div class="row">
+      <div class="col-md-12 text-center content-header">
+        <span class="display-3 font-weight-bold">Categorías</span>
+        <h1 class="content-head text-warning">Publica y encuentra lo que quieras en un solo sitio</h1>
+        <p class="content-head text-white">Aquí encontrarás todos los productos y servicios al alcance de un clic. Hogar, ferretería, alimentos, ropa, calzado, repuestos, mecánicos, albañiles, y mucho más…</p>
+        <%= link_to "Contratar Servicios", contact_path, class: "btn btn-sm btn-success"%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="container">
+  <div class="row mt-5">
+  </div>
+      
+  <!--Main-->
+
+  <div class="row main">
+
+      
+    <div class="col-md-8 ">
+      <!--carousel-->
+      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <% if @property.images.attached? %>
+              <% @property.images.each_with_index do |image, index| %>
+              <div class="carousel-item <%= 'active' if index == 0 %>" data-bs-slide="<%= index %>">
+                <%= image_tag (url_for(image)), class: " card-img-top" %>
+              </div>
+              <% end%>
+            <% end%>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!-- end carousel -->
+      <!-- galery-->
+      <div class="container">
+        <div class="row mt-2 border-info">
+          <% if @property.images.attached? %>
+            <% @property.images.each do |image| %>
+            <div class="col-md-3 p-1">
+              <%= image_tag (url_for(image)), class: "img-fluid " %>
+            </div>
+            <% end%>
+          <% end%>
+        </div>
+      </div>
+      <!--end galery-->        
+      <h2 class="pb-2 mb-2 mt-4 fst-italic border-bottom fw-bold">
+        Se vende o alquila <%= @property.type_property %>
+      </h2>
+
+      <h3 class="pb-2 mb-2 mt-4 fst-italic">
+        <%= @property.location %>
+      </h3>
+
+      <p class="pb-2 mb-2 mt-4 border-bottom"> <%= @property.special_feature %></p>
+      <!--Tiendas destacadas-->
+      <section class="categories-section">
+        
+      </section>
+      <!--Nav Buttons-->
+      <nav class="content-btn-categories" aria-label="Pagination">
+        <a class="btn btn-outline-secondary" href="/">Inicio</a>
+      </nav>
+    </div>
+    <!--Aside-->
+        <div class="col-md-4">
+          <div class="position-sticky" style="top: 2rem;">
+            <div class=" bg-light d-flex justify-content-center p-4 mb-3 ">
+              <div class="card p-3 mb-0" style="width: 18rem;">
+                <hr>
+                <h5 class="card-title">Inmueble</h5>
+                  <table class="table">
+                    <tbody>
+                      <p><i class="fas fa-map-marker-alt"></i> <span class="fw-bold">Ubicación: </span><%= @property.location %></p>
+
+                      <tr>
+                        <th scope="row"><i class="fas fa-home"></i> Tipo de propiedad:</th>
+                        <td class="text-capitalize"><%= @property.type_property %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><i class="fas fa-bed"></i> Dormitorios</th>
+                        <td><%= @property.bedroom %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><i class="fas fa-bath"></i> Baños</th>
+                        <td><%= @property.bathroom %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><i class="fas fa-chart-area"></i> M²</th>
+                        <td><%= @property.area %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p class="card-text"><i class="fas fa-plus-square"></i> <span class="fw-bold">Caracteristicas: </span> <% @property.special_feature %></p> 
+                  <%= render "properties/buttons" %>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <%= link_to "Contratar Servicios", contact_path, class: "btn btn-sm btn-outline-info"%>
+              </div>
+              <div class="p-4">
+                <h4 class="fst-italic">Categorías</h4>
+                <ol class="list-unstyled mb-0">
+                  
+                </ol>
+              </div>
+              <div class="p-4">
+                <h4 class="fst-italic">Algo más</h4>
+                <ol class="list-unstyled">
+                  <li><a href="#">Prensa</a></li>
+                  <li><%= link_to "Noticias", news_path, class: ""%></li>
+                  <li><a href="#">Eventos</a></li>
+                </ol>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+</section>

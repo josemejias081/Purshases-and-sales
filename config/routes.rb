@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :properties do
+    match '/asset/:asset_id', to: 'properties#delete_images_attachment', via: [:delete], as: "delete_asset"
+  end
+
   resources :events
   devise_for :users, controllers: {
     sessions: 'users/sessions',

@@ -1,0 +1,33 @@
+<div class="card p-2" style="width: 18rem;">
+  <% if property.portrait.attached? %>
+    <%= image_tag property.portrait, class:"card-img-top img" %>
+  <% else %>
+    <img src="https://www.yeaah.co/wp-content/uploads/2021/08/producto-sin-imagen.jpg" class="card-img-top" alt="">
+  <% end %>
+  <hr>
+  <h5 class="card-title">Inmueble (Cod: <%= property.id %>)</h5>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th scope="row"><i class="fas fa-home"></i> Tipo de propiedad:</th>
+        <td class="text-capitalize"><%= property.type_property %></td>
+      </tr>
+      <tr>
+        <th scope="row"><i class="fas fa-bed"></i> Dormitorios</th>
+        <td><%= property.bedroom %></td>
+      </tr>
+      <tr>
+        <th scope="row"><i class="fas fa-bath"></i> Baños</th>
+        <td><%= property.bathroom %></td>
+      </tr>
+      <tr>
+        <th scope="row"><i class="fas fa-chart-area"></i> Área en m²</th>
+        <td><%= property.area %></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="card-text text-truncate"><i class="fas fa-plus-square"></i> <span class="fw-bold">Caracteristicas: </span> <%= property.special_feature %></p> 
+  
+  <%= link_to "Mas detalles", property, class: "btn btn-product btn-primary" %>
+</div>
+  

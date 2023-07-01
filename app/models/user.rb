@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   has_many :products, through: :businesses
 
+  has_many :properties
+
   enum role: [:visitor, :admin, :superadmin]
   after_initialize :set_default_role, :if => :new_record?
 

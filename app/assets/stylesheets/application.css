@@ -15,6 +15,7 @@
  */
 
  /*Header categories*/
+ 
 
  :root {
    --status: <%= current_event.status %>;
