@@ -17,9 +17,7 @@
  /*Header categories*/
  
 
- :root {
-   --status: <%= current_event.status %>;
- }
+ 
 
  * {
   margin: 0;
@@ -492,6 +490,15 @@ p {
 
 /*Comence aqui*/
 
+.properties {
+  width: 100%;
+  color: #fff;
+  background-image: url(/rs-p.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .categories {
   width: 100%;
   color: #fff;
@@ -500,6 +507,8 @@ p {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+
 
 .carousel img {
   height: 300px;

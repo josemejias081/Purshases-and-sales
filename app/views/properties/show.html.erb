@@ -1,11 +1,11 @@
-<div class=" header categories ">
-  <div class="container contenedor">
+<div class=" header properties">
+  <div class="container contenedor ">
     <div class="row">
       <div class="col-md-12 text-center content-header">
-        <span class="display-3 font-weight-bold">Categorías</span>
-        <h1 class="content-head text-warning">Publica y encuentra lo que quieras en un solo sitio</h1>
-        <p class="content-head text-white">Aquí encontrarás todos los productos y servicios al alcance de un clic. Hogar, ferretería, alimentos, ropa, calzado, repuestos, mecánicos, albañiles, y mucho más…</p>
-        <%= link_to "Contratar Servicios", contact_path, class: "btn btn-sm btn-success"%>
+        <span class="display-3 font-weight-bold">Inmuebles</span>
+        <h1 class="content-head text-primary">Publica y encuentra Casas, Oficinas, Apartamentos, Locales y más</h1>
+        <p class="content-head text-white">Ademas encontrarás productos y servicios al alcance de un clic. Hogar, ferretería, alimentos, ropa, calzado, repuestos, mecánicos, albañiles, y mucho más…</p>
+        <%= link_to "Contratar Servicios", contact_path, class: "btn btn-sm btn-success mb-3"%>
       </div>
     </div>
   </div>
@@ -70,7 +70,7 @@
       </section>
       <!--Nav Buttons-->
       <nav class="content-btn-categories" aria-label="Pagination">
-        <a class="btn btn-outline-secondary" href="/">Inicio</a>
+        <%= link_to "Ver más propiedades", properties_path, class: "btn btn-outline-secondary"%>
       </nav>
     </div>
     <!--Aside-->
