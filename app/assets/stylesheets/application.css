@@ -489,14 +489,8 @@ p {
 
 
 /*Comence aqui*/
-
-.properties {
-  width: 100%;
-  color: #fff;
-  background-image: url(/rs-p.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+.portada {
+  background-image: url(/otra.jpg);
 }
 
 .categories {
