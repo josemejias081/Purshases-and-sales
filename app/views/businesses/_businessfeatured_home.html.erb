@@ -1,14 +1,13 @@
 <% @businesses.each do |business| %>
   <% if business.featured? %>
-    <div class="card-business">
+    <div class="card-business border border-primary">
       <div class="card-header-business">
         <%= image_tag business.logo, class: "photo-header"%>
-        <h5 class="card-title-header"><%= business.name %></h5>
+        <h6 class="card-title-header"><%= business.name %></h6>
       </div>
-             
-      <section class="row flexible px-2">
+      <div class="row py-2 d-flex justify-content-between">
         <% business.products.each do |product| %>
-          <div class="col-md-3 col-xs-4">
+          <div class="col-md-3">
             <% if product.image.attached? %>
               <%= image_tag url_for(product.image), class:"rounded border", style:"width: 50px; height: 50px;" %>
             <% else %>
@@ -16,7 +15,7 @@
             <% end %>
           </div>
         <% end %>
-      </section>
+      </div>
       <%= link_to "Visitar", business, class: "btn-card-business" %>
     </div>
   <% end %>

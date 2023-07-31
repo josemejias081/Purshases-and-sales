@@ -823,18 +823,15 @@ p {
   border-radius: 10px;
 }
 
-.card-title-header {
-  margin: 0 auto;
-}
-
 /* End Card Header SectionTwo*/
 .btn-card-business {
   background: #084298;
   color: #fff;
   padding: 10px;
   display: block;
-  border-radius: 3px;
-  text-decoration: none;margin-bottom: 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-bottom: 20px;
 }
 
 .btn-card-business:hover {
