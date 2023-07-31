@@ -1,10 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :business, optional: true
   has_one_attached :image
-
-  #validates :images, content_type: ['image/png', 'image/jpg', 'image/jpeg']     
-  
-
   validate :validate_product_limit
 
   def images_validation

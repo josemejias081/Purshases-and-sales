@@ -16,7 +16,6 @@ class UsersController < ApplicationController
     @businesses = Business.all
     @user = User.new(user_params)
     if @user.save 
-      #WelcomeMailer.notify(@user).deliver_now!
       flash[:success] = "Usuario creado exitosamente"
       redirect_to users_path
     else
@@ -62,4 +61,3 @@ class UsersController < ApplicationController
       params.require(:user).permit(:id, :name, :email, :role, :status, :address, :phone, :active, :password, :password_confirmation, :business_ids)
     end
 end
-

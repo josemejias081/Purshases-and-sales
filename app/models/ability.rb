@@ -2,44 +2,23 @@
 
 class Ability
   include CanCan::Ability
-
   def initialize(user)
     return unless user.present?
 
       if user.superadmin?
         can :manage, :all
       elsif user.admin?
-        
-
         can :read, Category
-
-        #can :read, Business#el resto de permisos delimitar en las vistas (no mostrar los links en las vistas puede ser usando unless)
-        #can :update, Business, user_id: user.id
         can :manage, Business, user_id: user.id
-
-        #can :read, Product
-        
-        
-        #can :manage, Product, business_id: user.businesses
-        
-        #can :manage, Product, business_id: user.business_ids
-        #can :create, Product
         can :manage, Product
-        
-
-        
-
         can :read, User, id: user.id
         can :update, User, id: user.id  
-
         cannot :index, User
-
         cannot :destroy, User
       else
         can :read, Business
         can :read, Category
-        can :read, Product
-        
+        can :read, Product 
       end
     # Define abilities for the user here. For example:
     #

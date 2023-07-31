@@ -14,8 +14,6 @@ class BusinessesController < ApplicationController
     @product = Product.new
     @products = Product.all
     @businesses = Business.all
-    
-    
   end
   
   def new
@@ -29,16 +27,11 @@ class BusinessesController < ApplicationController
   end
 
   def create
-    #debugger
     @product = Product.new(business_id: @business_id)
-   
-    #@product = Product.find(params[:product_id])
     @user = User.all
     @products = Product.all
     @categories = Category.all
     @products = Product.limit(4)
-    #@business = Business.new(business_params)
-
     if @business.save
       redirect_to @business, notice: "Business was successfully created." 
     else
@@ -52,12 +45,11 @@ class BusinessesController < ApplicationController
     @user = User.all
     @products = Product.all
     @businesses = Business.all
-      if @business.update(business_params)
-        redirect_to @business, notice: "Business was successfully updated." 
-      else
-        render "edit", status: :unprocessable_entity 
-      end
-    
+    if @business.update(business_params)
+      redirect_to @business, notice: "Business was successfully updated." 
+    else
+      render "edit", status: :unprocessable_entity 
+    end
   end
 
   def destroy

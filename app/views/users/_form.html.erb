@@ -55,36 +55,24 @@
                 <%= f.email_field :email, autofocus: true, placeholder: "Correo Electrónico",class: 'form-control' %>
               </div>
 
-              <!-- Password input -->
               <div class="form-outline mb-4">
                 <%= f.select( :role, User.roles.keys, {class: "form-control "}) %>
               </div>
 
-               <%# if current_user.is_superadmin? %>
               <div class="form-group mb-4">
-                <label>Empresa</label><br>
-                <%# f.collection_select(:businesses, @business, :id, :business) %>         
+                <label>Empresa</label><br>     
               </div>
-              <%# else %>
-                <%# f.hidden_field :company_id, value: current_user.company.id%>
-              <%# end %>
 
               <div class="col-md-6 form-group">
                 <label>Negocios</label><br>
                 <div class="text-dark">
-                  <%# collection_select(:user, :business_ids, @businesses, :id, :name, {:prompt => 'Seleccione un negocio'}, { class: "form-control" })%>
-                  <%# f.select(:business_ids, Business.find(:all).collect {|u| [u.name, u.ids]}, :prompt => 'Select') %>
-                  <%# select(@user, @business_id, Business.all.collect {|p| [ p.name, p.id ] }, {}) %>
                 </div>
               </div>
-
-
               <!-- Checkbox -->
               <div class="form-group form-check form-switch mb-4">
                 <%= f.label "Activo / Inactivo", class: "form-check-label" %>
                 <%= f.check_box :active, class: "form-check-input", placeholder: "" %>
               </div>
-
               <!-- Password input -->
               <div class="form-outline mb-4">
                 <% if @minimum_password_length %>

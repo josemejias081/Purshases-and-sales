@@ -18,7 +18,6 @@ class PropertiesController < ApplicationController
 
   def create
     @users = User.all
-    #@property = Property.new(user_id: @user.id)
     @property = Property.new(property_params)
 
     if @property.save
@@ -35,7 +34,6 @@ class PropertiesController < ApplicationController
     else
       render "edit", status: :unprocessable_entity
     end
-
   end
 
   def destroy
