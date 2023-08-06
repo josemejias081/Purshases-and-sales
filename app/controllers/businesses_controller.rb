@@ -1,5 +1,5 @@
 class BusinessesController < ApplicationController
-  load_and_authorize_resource
+  skip_authorization_check only: [:index, :show]
   before_action :set_business, only: [ :show, :edit, :update, :destroy ]
 
   def index   

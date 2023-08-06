@@ -32,13 +32,15 @@
         <% end %>
       </p>
       <p class="product-description">Localidad: <%= @event.location %></p>
-      
-      <% unless current_user.visitor?%>
-        <div class="card-footer text-center mt-2">
-          <%= link_to "Editar", edit_event_path(@event), class: "card-link" %>
-          <%= link_to "Volver", events_path, class: "card-link" %>
-          <%= link_to "Eliminar", @event, data: {turbo_method: :delete}, class: "card-link" %>
-        </div>
+
+      <% if user_signed_in? %>    
+        <% unless current_user.visitor? or current_user.admin?%>
+          <div class="card-footer text-center mt-2">
+            <%= link_to "Editar", edit_event_path(@event), class: "card-link" %>
+            <%= link_to "Volver", events_path, class: "card-link" %>
+            <%= link_to "Eliminar", @event, data: {turbo_method: :delete}, class: "card-link" %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </article>  

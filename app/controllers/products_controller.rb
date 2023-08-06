@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  load_and_authorize_resource
+  skip_authorization_check only: [:index, :show]
   before_action :set_product, only: [ :show, :edit, :update, :destroy ]
   
   def new
@@ -37,6 +37,7 @@ class ProductsController < ApplicationController
     @users = User.all
     @businesses = Business.all
     @products = Product.all
+
     if @product.update(product_params)
       redirect_to @product, notice: "Product was successfully updated."
     else

@@ -16,6 +16,7 @@ class Product < ApplicationRecord
   private
     def validate_product_limit
       return unless self.business
+      return unless new_record?
       if self.business.products.count >= 4
         errors.add(:base, "Se ha alcanzado el límite máximo de productos para este negocio. Puedes eliminar uno de tus productos antiguos y sustituirlo por uno nuevo")
       end

@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  load_and_authorize_resource
+  skip_authorization_check only: [:index, :show]
   before_action :set_property, only: [ :show, :edit, :update, :destroy ]
   
   def new

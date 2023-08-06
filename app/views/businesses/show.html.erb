@@ -1,5 +1,4 @@
 <section class="container mb-5">
-  <p>negocio con productos</p>
   <div class="row row-company mt-5">
     <div class="col-md-4  photo-company">
       <% if @business.logo.attached? %>
@@ -46,9 +45,13 @@
     <% end %>
   </section>
   <div>
-    <%= link_to "Edit this business", edit_business_path(@business) %> |
-    <%= link_to "Back to businesses", businesses_path %> |
-    <%= link_to 'New Product', new_business_product_path(@business) %> |
-    <%= link_to "Destroy this business", @business, data: {turbo_method: :delete} %>
+    <% if user_signed_in? %> 
+      <%= link_to "Edit this business", edit_business_path(@business) %> |
+      <%= link_to "Back to businesses", businesses_path %> |
+      <%= link_to 'New Product', new_business_product_path(@business) %> |
+      <% if current_user.superadmin?%>
+        <%= link_to "Destroy this business", @business, data: {turbo_method: :delete} %>
+      <% end %>
+    <% end %>
   </div>
 </section>

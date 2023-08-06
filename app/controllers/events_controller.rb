@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  skip_authorization_check only: [:index, :show]
   before_action :set_event, only: %i[ show edit update destroy ]
 
   def index

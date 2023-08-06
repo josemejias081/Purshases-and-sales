@@ -31,9 +31,13 @@
     </div>
   </section>
 <% end %>
-<div class="container mb-5">
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to categories", categories_path %> |
-  <%= link_to "Destroy this category", @category, data: {turbo_method: :delete} %>
-</div>
+<% if user_signed_in? %>    
+  <% unless current_user.visitor? or current_user.admin?%>
+    <div class="container mb-5">
+      <%= link_to "Edit this category", edit_category_path(@category) %> |
+      <%= link_to "Back to categories", categories_path %> |
+      <%= link_to "Destroy this category", @category, data: {turbo_method: :delete} %>
+    </div>
+  <% end %>
+<% end %>
      
