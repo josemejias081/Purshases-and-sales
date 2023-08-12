@@ -6,7 +6,9 @@
           <div class= "ribbon-wrap">
             <div class= "ribbon"><small style="font-size: 14px;">Producto destacado</small></div>
           </div>
+          <% if product.image? %>
           <%= image_tag product.image, class: "rounded size"%>
+          <% end %>
         <% end %>
       </div>
     <% end %>

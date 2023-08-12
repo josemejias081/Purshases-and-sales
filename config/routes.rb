@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :businesses
   resources :categories
   resources :products
+  #resources :products, only: [:index, :create, :new]
+
   #get 'home/welcome'
   resources :users do
     get "reset_password"

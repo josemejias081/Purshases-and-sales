@@ -1,12 +1,14 @@
 class ProductsController < ApplicationController
-  skip_authorization_check only: [:index, :show]
-  before_action :set_product, only: [ :show, :edit, :update, :destroy ]
+  #skip_authorization_check only: [:index, :show]
+  load_and_authorize_resource
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  #before_action :set_business, only: [ :show, :edit, :update, :destroy ]
+  
   
   def new
-    @users = User.all
-    @product = Product.new(business_id: @business_id)
-    @businesses = Business.all    
-    
+    @users = User.all 
+    @product = Product.new
+    @businesses = Business.all
   end
 
   def show
@@ -15,9 +17,9 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @users = User.all
+    #@users = User.all
     @businesses = Business.all
-    @product = Product.new(business_id: @business_id)
+    #@product = Product.new(business_id: @business_id)
     @product = Product.new(product_params)  
     
     if @product.save
@@ -59,6 +61,11 @@ class ProductsController < ApplicationController
     def set_product
       @product = Product.find(params[:id])
     end
+
+    #def set_business
+    #  @business = Business.find(params[:business_id])
+    #end
+
 
     def product_params
       params.require(:product).permit(:image, :name, :price, :presentation, :featured, :business_id, :user_id)
