@@ -14,7 +14,9 @@
       <%= render business %>
     </div>
   <% end %>
-  <div class= "mb-5">
-    <%= link_to "Add new business", new_business_path, class: "btn btn-primary" %>
-  </div>
+ <% if user_signed_in? %>
+    <div class= "mb-5">
+      <%= link_to "Add new business", new_business_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
 </section>

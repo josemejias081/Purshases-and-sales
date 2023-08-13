@@ -3,11 +3,7 @@ class BusinessesController < ApplicationController
   before_action :set_business, only: [ :show, :edit, :update, :destroy ]
 
   def index   
-    if current_user.is_superadmin?
-      @businesses = Business.all.order("created_at DESC")
-    else
-      @businesses = current_user.businesses #este permiso mejorarlo en la vista con un unless para que solo pueda joder a su empresa
-    end
+    @businesses = Business.all.order("created_at DESC")
   end
  
   def show

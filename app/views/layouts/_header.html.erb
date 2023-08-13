@@ -77,8 +77,14 @@
           <i class="fas fa-bullhorn"></i><strong class="pl-1">Purchases & Sales</strong>
         <% end %>
       </span>
+      
       <% unless user_signed_in? %> 
-        <%= link_to "Sign in", new_user_session_path, class:"btn btn-small btn-success" %> 
+        <%= link_to "Sign in", new_user_session_path, class:"text-success fw-bold" %> 
+        <%= link_to "Categorias", categories_path, class: "text-white" %>
+        <%= link_to "Negocios", businesses_path, class: "text-white" %>
+        <%= link_to "Productos", products_path, class: "text-white" %>
+        <%= link_to "Inmuebles", properties_path, class: "text-white" %>
+        <%= link_to "Eventos", events_path, class: "text-white" %>
       <% end %>
       <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
