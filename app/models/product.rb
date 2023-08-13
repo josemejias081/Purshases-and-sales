@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   belongs_to :business
   has_one_attached :image
   validate :validate_product_limit
-  #validates :business, presence: true
+  # validates :business, presence: true
 
   def images_validation
     if images.attached?

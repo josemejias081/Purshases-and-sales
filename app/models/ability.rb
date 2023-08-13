@@ -1,25 +1,18 @@
 # frozen_string_literal: true
-
-
 class Ability
   include CanCan::Ability
   def initialize(user)
-    #return unless user.present?
     user ||= User.new
-    
     
     if user.superadmin?
       can :manage, :all
     elsif user.admin?
       can :read, Category
       can :manage, Business, user_id: user.id
-      #can :update, Product, business: { user_id: user.id }
       can :update, Product, business: { user_id: user.id }
       can :destroy, Product, business: { user_id: user.id }
-
       can :create, Product
       can :read, Product
-      #cannot :destroy, Product
       can :read, User, id: user.id
       can :update, User, id: user.id
       cannot :index, User
@@ -54,4 +47,3 @@ class Ability
   # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
   end
 end
-  
