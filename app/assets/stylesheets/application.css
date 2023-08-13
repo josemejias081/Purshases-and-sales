@@ -115,20 +115,6 @@ a {
 
 }
 
-.info-business {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  object-fit: cover;
-  color: #fff;
-}
-
-.info-business:hover {
-  background: #fe8c00 !important;
-  color: #fff;
-}
-
-
 /*top product section*/
 .rounded:hover {
   box-shadow: 10px 10px 346px 0px rgba(0,0,0,0.71);

@@ -1,6 +1,6 @@
 <section class="container mb-5">
   <div class="row row-company mt-5">
-    <div class="col-md-4  photo-company">
+    <div class="col-md-4  photo-company background-radial-gradient">
       <% if @business.logo.attached? %>
         <figure class="figure m-3" >
         <%= image_tag url_for(@business.logo), class: "figure-img img-fluid rounded", style: "width: 100%;" %>
@@ -9,20 +9,21 @@
         </figure>
       <% end %>
     </div>
-    <div class="col-md-8 info-business" style="background-image: url(<%= rails_blob_url(@business.cover) if @business.cover.attached? %>)">
+    <div class="col-md-8 background-radial-gradient text-white" >
       <h3 class="my-3"><%= @business.name %></h3>
       <h4 class="my-3">RIF: <%= @business.rif %></h4>
       <h4 class="my-3">Dirección: <%= @business.address %></h4>
       <h4 class="my-3">Teléfono: <%= @business.phone %></h4>
       <h4 class="my-3">Correo: <%= @business.email %></h4>
       <h4 class="my-3">Responsable: <%= @business.user.name %></h4>
-      <h4>Contacto:</h4>
+      <hr class="divider">
+      <h4>Siguenos</h4>
       <div class="row row-contact padre">
         <div class="col-md-12 social">
-          <a href="<%= @business.ig %>" class="mr-3"><i class="fab fa-instagram "></i> Instagram</a>
-          <a href="<%= @business.fb %>"><i class="fab fa-facebook-square"></i> Facebook</a>
-          <a href="https://api.whatsapp.com/send?phone=+584141584350&amp;text=Hola!" target="_blanck"><i class="fab fa-whatsapp-square"></i> Whatsapp</a>
-          <a href="<%= @business.location %>"><i class="fas fa-map-marker-alt"></i> Visitanos</a>
+          <a href="<%= @business.ig %>" class="mr-3 text-white"><i class="fab fa-instagram "></i> Instagram</a>
+          <a href="<%= @business.fb %>"class="text-white"><i class="fab fa-facebook-square"></i> Facebook</a>
+          <a href="https://api.whatsapp.com/send?phone=+584141584350&amp;text=Hola!" target="_blanck" class="text-white"><i class="fab fa-whatsapp-square"></i> Whatsapp</a>
+          <a href="<%= @business.location %>"class="text-white"><i class="fas fa-map-marker-alt"></i> Visitanos</a>
         </div>
       </div>
     </div>
@@ -31,16 +32,18 @@
   <section class="row row-company-photo">
     <% @business.products.each do |product| %>
       <div class="col-md-3 mb-2 mt-2">
-        <% if product.image.attached? %>
-          <%= image_tag url_for(product.image), class:"rounded border", style:"width: 100%;" %>
-        <% else %>
-          <img src="/producto-sin-imagen-recortada.jpeg" alt="" class="rounded border" style="width: 100%;">
+        <%= link_to product do %>
+          <% if product.image.attached? %>
+            <%= image_tag url_for(product.image), class:"rounded border", style:"width: 100%;" %>
+          <% else %>
+            <img src="/producto-sin-imagen-recortada.jpeg" alt="" class="rounded border" style="width: 100%;">
+          <% end %>
+          <figcaption class="figure-caption text-justify ">
+            <p class="fw-bold"><%= product.name %></p> 
+            <p class="text-truncate"><%= product.presentation %></p> 
+            <p class="">Precio: <%= product.price %> $ </p>
+          </figcaption>
         <% end %>
-        <figcaption class="figure-caption text-justify ">
-          <p class="fw-bold"><%= product.name %></p> 
-          <p class="text-truncate"><%= product.presentation %></p> 
-          <p class="">Precio: <%= product.price %> $ </p>
-        </figcaption>
       </div>
     <% end %>
   </section>
