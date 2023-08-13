@@ -1,22 +1,38 @@
 <section class="container">
-  <h1>Businesses list</h1>
-  <% @businesses.each do |business| %>
-    <div class="row row-company mt-3 mb-3">
-      <div class="col-md-4  photo-company">
-        <% if business.logo.attached? %>
-          <figure class="figure m-3" >
-          <%= image_tag url_for(business.logo), class: "figure-img img-fluid rounded", style: "width: 100%;" %>
-        <% else %>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4nKnXI_b_GU0wpcYBkUMjGy8GcBsuliQ3ZvqzQhlcT-NSCL4IJ91H7BMniX48fr-Bh5c&usqp=CAU" alt="" class="figure-img img-fluid rounded" style="width: 100%;">
-          </figure>
-        <% end %>
+  <div class="row d-flex justify-content-center">
+    <% @businesses.each do |business| %>
+      <div class="col-lg-3 m-3">
+        <div class="card" style="width: 18rem;">
+          <% if business.cover.attached? %>
+            <%= image_tag url_for(business.cover), class: "figure-img img-fluid rounded", style: "width: 100%;" %>
+          <% else %>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4nKnXI_b_GU0wpcYBkUMjGy8GcBsuliQ3ZvqzQhlcT-NSCL4IJ91H7BMniX48fr-Bh5c&usqp=CAU" alt="" class="figure-img img-fluid rounded" style="width: 100%;">
+            </figure>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= business.name %></h5>
+            <div class="row py-2 d-flex justify-content-between">
+              <% business.products.each do |product| %>
+                <div class="col-md-3">
+                  <% if product.image.attached? %>
+                    <%= image_tag url_for(product.image), class:"rounded border", style:"width: 50px; height: 50px;" %>
+                  <% else %>
+                    <img src="producto-sin-imagen.jpg" alt="" class="rounded border" style="width: 50px; height: 50px;">
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+            <%= link_to "Visitar negocio", business, class: "btn-card-business text-center" %>
+          </div>
+        </div>
       </div>
-      <%= render business %>
-    </div>
-  <% end %>
- <% if user_signed_in? %>
-    <div class= "mb-5">
-      <%= link_to "Add new business", new_business_path, class: "btn btn-primary" %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+    <% if user_signed_in? %>
+      <% unless current_user.admin?%>
+        <div class= "mb-5">
+          <%= link_to "Add new business", new_business_path, class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    <% end %>
 </section>
