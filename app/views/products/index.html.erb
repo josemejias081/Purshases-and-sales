@@ -7,7 +7,9 @@
           <%= render product %>   
         </div>
       <% end %>
-      <%= link_to "New product", new_product_path %>
+      <% if user_signed_in? %> 
+        <%= link_to "New product", new_product_path %>
+      <% end %>
     </div>
   </div>
 </section>

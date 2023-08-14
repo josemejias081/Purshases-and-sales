@@ -7,7 +7,11 @@
           <%= render property %>   
         </div>
       <% end %>
-      <%= link_to "New property", new_property_path %>
+      <% if user_signed_in? %> 
+        <% unless current_user.admin?%>        
+          <%= link_to "New property", new_property_path %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </section>

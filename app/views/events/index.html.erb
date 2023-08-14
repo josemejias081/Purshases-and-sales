@@ -7,7 +7,11 @@
           <%= render event %>   
         </div>
       <% end %>
-      <%= link_to "New evento", new_event_path %>
+      <% if user_signed_in? %> 
+        <% unless current_user.admin?%>    
+          <%= link_to "New evento", new_event_path %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </section>
