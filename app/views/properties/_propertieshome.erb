@@ -1,0 +1,16 @@
+<% Property.all.each_with_index do |property, index| %>
+  <div class="carousel-item <%= 'active' if index == 0 %>" data-bs-slide="<%= index %>">
+    <% if property.portrait.attached? %>
+      <%= image_tag property.portrait, class:"d-block w-100" %>
+    <% else %>
+      <img src="https://www.yeaah.co/wp-content/uploads/2021/08/producto-sin-imagen.jpg" class="d-block w-100" alt="">
+    <% end %>
+    <div class="carousel-caption d-none d-md-block">
+      <h5>Inmueble (Cod: <%= property.id %>)</h5>
+      <h3>Tipo de propiedad: <%= property.type_property %></h3>
+      <h6>Ubicación: <%= property.location %></h6>
+      <%= link_to "Más información", property, class: "btn btn-info text-center" %>
+    </div>
+  </div>    
+<% end %>
+
