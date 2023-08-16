@@ -2,16 +2,16 @@
   <% if product.image.attached? %>
     <%= image_tag product.image, class:"card-img-top img" %>
   <% else %>
-    <img src="https://www.yeaah.co/wp-content/uploads/2021/08/producto-sin-imagen.jpg" class="card-img-top" alt="">
+    <img src="/producto-sin-imagen-recortada.jpeg" class="card-img-top" alt="">
   <% end %>
   <div class="card-body">
     <h5 class="card-title-product mb-0">U$S <%= product.price %></h5>
     <small class="text-success">Envio gratis</small>
-    <div class=" card-text-two">
-      <p class="text-truncate"><%= product.presentation %></p>
+    <div class="">
+      <p class="text-truncate"><%= product.name %></p>
       <ul class="list-unstyled">
         <li>Descuento: 10%</li>
-        <li>Precio: <%= product.price %> $</li>
+        <li>Presentación: <%= product.presentation %></li>
         <li>Distribuidor: <%= product.business.name %></li>
       </ul>
           <%= link_to 'Ver este producto', business_product_path(product.business, product), class: "btn btn-product btn-primary" %>

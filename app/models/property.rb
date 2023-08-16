@@ -7,7 +7,7 @@ class Property < ApplicationRecord
   enum type_property: [:casa, :apartamento, :terreno, :local, :oficina]
   after_initialize :set_default_type_property, :if => :new_record?
 
-  enum roof: [:acerolit, :machiembrado, :platabanda, :zinc]
+  enum roof: [:acerolit, :machiembrado, :platabanda, :zinc, :no_aplica]
   after_initialize :set_default_roof, :if => :new_record?
 
   enum floor: [:cemento, :granito, :ceramica, :porcelanato, :parquet]
@@ -42,7 +42,7 @@ class Property < ApplicationRecord
   end
 
   def set_default_roof
-    self.roof ||= :acerolit 
+    self.roof ||= :no_aplica 
   end
 
   def has_roof roof
@@ -63,6 +63,10 @@ class Property < ApplicationRecord
 
   def is_zinc?
     self.zinc == "zinc"
+  end
+
+  def is_no_aplica?
+    self.no_aplica == "no aplica"
   end
 
 

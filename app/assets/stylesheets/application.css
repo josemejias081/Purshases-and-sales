@@ -747,15 +747,6 @@ p {
   color: #212121;
   text-align: justify;
 }
-.card-text-two {
-  color: #fff;
-  transition: 0.5s;
-}
-
-.card-text-two:hover {
-  color: #212121;
-  text-align: justify;
-}
 
 .card-text, .btn-product {
   margin: 10px 0;
