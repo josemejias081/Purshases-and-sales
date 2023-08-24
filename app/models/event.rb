@@ -3,6 +3,18 @@ class Event < ApplicationRecord
   enum status: [:próximamente, :pasado, :suspendido]
   after_initialize :set_default_status, :if => :new_record?
 
+  
+  validates :portrait, presence: true
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :date, presence: true
+  validates :location, presence: true
+  validates :speaker, presence: true
+  validates :price, presence: true
+  validates :modality, presence: true
+  validates :cost, presence: true
+  validates :status, presence: true
+
   def set_default_status
     self.status ||= :próximamente
   end
