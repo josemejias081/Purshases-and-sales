@@ -28,6 +28,7 @@ class BusinessesController < ApplicationController
     @products = Product.all
     @categories = Category.all
     @products = Product.limit(4)
+    @business = Business.new(business_params)
     if @business.save
       redirect_to @business, notice: "Business was successfully created." 
     else
