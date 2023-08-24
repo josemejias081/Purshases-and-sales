@@ -2,7 +2,20 @@ class Property < ApplicationRecord
   belongs_to :user, optional: true
   has_one_attached :portrait
   has_many_attached :images
+
   validates :user, presence: true
+  validates :portrait, presence: true
+  validates :images, presence: true
+  validates :type_property, presence: true
+  validates :roof, presence: true
+  validates :floor, presence: true
+  validates :bedroom, presence: true
+  validates :bathroom, presence: true
+  validates :area, presence: true
+  validates :price, presence: true
+  validates :phone, presence: true
+  validates :location, presence: true
+  validates :special_feature, presence: true
 
   enum type_property: [:casa, :apartamento, :terreno, :local, :oficina]
   after_initialize :set_default_type_property, :if => :new_record?
@@ -12,6 +25,8 @@ class Property < ApplicationRecord
 
   enum floor: [:cemento, :granito, :ceramica, :porcelanato, :parquet]
   after_initialize :set_default_floor, :if => :new_record?
+
+
 
   def set_default_type_property
     self.type_property ||= :casa 
