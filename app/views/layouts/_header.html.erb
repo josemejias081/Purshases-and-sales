@@ -15,6 +15,8 @@
                 <li><%= link_to "Categorias", categories_path, class: "text-white" %>  <i class="far fa-folder-open"></i>
                   <hr class="divider">
               <% end %>
+              <li><i class="fas fa-plus-square"></i> <%= link_to "Crear categoria", new_category_path, class: "text-white" %></li> 
+                <li><%= link_to "Categorias", categories_path, class: "text-white" %>  <i class="far fa-folder-open"></i>
               <li><i class="fas fa-plus-square"></i> <%= link_to "Crear negocio", new_business_path, class: "text-white" %></li>
               <li><%= link_to "Negocios", businesses_path, class: "text-white" %>  <i class="fas fa-store-alt"></i>
                 <hr class="divider">
