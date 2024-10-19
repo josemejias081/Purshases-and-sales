@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)  
     
     if @product.save
+      @product.category_ids = params[:product][:category_ids]
       redirect_to @product, notice: "Product was successfully created"
     else
       render :new, status: :unprocessable_entity, alert: "Product was not successfully created"
@@ -58,6 +59,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:image, :name, :price, :presentation, :featured, :business_id, :user_id)
+      params.require(:product).permit(:image, :name, :price, :presentation, :featured, :business_id, :user_id, category_ids: [])
     end
 end

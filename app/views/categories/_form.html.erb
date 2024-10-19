@@ -23,11 +23,17 @@
             <%= form.label :Foto, style: "form-label" %>
             <%= form.file_field :photo, class: "form-control form-control-lg" %>
           </div>
-          
-          <div class="form-outline mb-4">
-            <%= form.label :Icono, style: "form-label" %>
-            <%= form.text_field :icon, class: "form-control form-control-lg" %>
+
+          <div class="form-group">
+            <%= form.label :Icono, "Seleccionar Ícono", for: 'icon-picker' %>
+            <div class="input-group">
+              <%= form.collection_select :icon, Category::ICONS, :last, :first, { prompt: 'Seleccione un ícono' }, { class: 'form-control', id: 'icon-picker' } %>
+              <span id="icon-preview" style="margin-left: 10px;">
+                <i class="fas fa-camera icon"></i> <!-- Ícono por defecto -->
+              </span>
+            </div>
           </div>
+
 
           <div class="form-outline mb-4">
             <%= form.label :Nombre, style: "form-label" %>

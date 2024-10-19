@@ -12,6 +12,15 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    @icons = [
+      ['Cámara', 'fas fa-camera'],
+      ['Coche', 'fas fa-car'],
+      ['Corazón', 'fas fa-heart'],
+      ['Libro', 'fas fa-book'],
+      ['Estrella', 'fas fa-star'],
+      ['Cafetería', "fa-solid fa-mug-saucer"],
+      ['Peluquería', 'fa-solid fa-scissors']
+    ]
   end
 
   def edit

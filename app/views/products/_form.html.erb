@@ -49,6 +49,11 @@
             <%= form.text_field :price, class: "form-control form-control-lg" %>
           </div>
 
+          <div class="field">
+            <%= form.label :category_id, "Categoría" %>
+            <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: 'Seleccione una categoría' }, { class: 'form-control' } %>
+          </div>
+
           <div  style="border: solid; #ffdf2d; 2px;">     
             <div class="form-outline mb-4">
               <% form.label :Negocio, style: "form-label" %>
