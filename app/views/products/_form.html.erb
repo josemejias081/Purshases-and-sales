@@ -50,8 +50,15 @@
           </div>
 
           <div class="field">
-            <%= form.label :category_id, "Categoría" %>
-            <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: 'Seleccione una categoría' }, { class: 'form-control' } %>
+            <%# form.label :category_id, "Categoría" %>
+            <%# collection_select(:product, :categories, @categories, :id, :name, {:prompt => 'Seleccione una categoria'}, { class: "form-control" })%>
+          </div>
+
+          <div class="field">
+            <%= form.label :category_ids, "Categorías" %>
+            <%# form.collection_select :category_ids, Category.all, :id, :name, {}, { multiple: true, class: "form-control" } %>
+            <%# collection_select(:product, :categories, @categories, :id, :name, {:prompt => 'Seleccione una categoria'}, { multiple: true, class: "form-control" })%>
+            <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
           </div>
 
           <div  style="border: solid; #ffdf2d; 2px;">     

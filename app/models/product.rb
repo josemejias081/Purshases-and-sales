@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :business
   has_one_attached :image
-  has_and_belongs_to_many :categories
+  has_and_belongs_to_many :categories, through: :categories_products
 
   validate :validate_product_limit
 
@@ -20,7 +20,7 @@ class Product < ApplicationRecord
     end
   end
 
-  before_validation :set_default_category, on: :create
+  #before_validation :set_default_category
   before_save :set_default_category
 
 
@@ -31,7 +31,7 @@ class Product < ApplicationRecord
     def set_default_category
       if categories.empty?
         uncategorized_category = Category.find_by(name: 'Sin Categorizar')
-        self.category_ids = [uncategorized_category.id] if uncategorized_category
+        self.categories << uncategorized_category if uncategorized_category
       end
     end
 

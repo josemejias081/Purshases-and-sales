@@ -6,11 +6,13 @@ class ProductsController < ApplicationController
     @users = User.all 
     @product = Product.new
     @businesses = Business.all
+    @categories = Category.all
   end
 
   def show
     @products = Product.all
     @businesses = Business.all
+    @product = Product.find(params[:id])
   end
 
   def create
@@ -29,6 +31,7 @@ class ProductsController < ApplicationController
     @users = User.all
     @businesses = Business.all
     @products = Product.all
+    @categories = Category.all
   end
 
   def update
